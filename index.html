@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Halder & Co.</title>
   <link rel="icon" type="image/png" href="34391.png" />
+
   <style>
+    :root {
+      --primary: #1f3d2b;
+      --bg: #f6f4ef;
+      --card: #ffffff;
+      --accent: #25D366;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #f6f4ef;
+      background: var(--bg);
       color: #2b2b2b;
       line-height: 1.6;
     }
 
     /* Header */
     header {
-      background: linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.88)), #e8e4db;
+      background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9));
       text-align: center;
-      padding: 40px 20px 30px;
+      padding: 40px 16px 30px;
     }
 
     .logo {
@@ -23,32 +38,35 @@
       max-width: 45%;
       border-radius: 50%;
       box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     header h1 {
       margin: 0;
       font-size: 34px;
       letter-spacing: 1px;
-      color: #1f3d2b;
+      color: var(--primary);
     }
 
     header p {
-      margin: 6px 0 0;
+      margin: 6px 0;
       font-size: 15px;
     }
 
+    /* Sections */
     section {
-      padding: 45px 20px;
+      padding: 40px 16px;
       max-width: 1000px;
       margin: auto;
     }
 
     h2 {
-      color: #1f3d2b;
+      color: var(--primary);
       margin-bottom: 18px;
+      font-size: 26px;
     }
 
+    /* Grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -56,25 +74,69 @@
     }
 
     .card {
-      background: #ffffff;
+      background: var(--card);
       padding: 20px;
-      border-radius: 8px;
+      border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      font-size: 15px;
     }
 
+    /* Contact & Message */
     .contact {
       background: #e9efe9;
+      border-radius: 12px;
+      padding: 30px 20px;
+    }
+
+    .message-box {
+      background: var(--card);
       border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .message-box form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .message-box input,
+    .message-box textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    .message-box textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .message-box button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      font-size: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .message-box button:hover {
+      opacity: 0.9;
     }
 
     a {
-      color: #1f3d2b;
+      color: var(--primary);
       text-decoration: none;
       font-weight: bold;
     }
 
     footer {
-      background: #1f3d2b;
+      background: var(--primary);
       color: #ffffff;
       text-align: center;
       padding: 16px;
@@ -86,18 +148,33 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #25D366;
+      background: var(--accent);
       color: #ffffff;
       padding: 14px 20px;
       border-radius: 30px;
-      font-size: 16px;
+      font-size: 15px;
       box-shadow: 0 6px 14px rgba(0,0,0,0.25);
       z-index: 1000;
     }
 
+    /* Mobile Adjustments */
     @media (max-width: 600px) {
-      header h1 { font-size: 28px; }
-      .logo { width: 120px; }
+      header h1 {
+        font-size: 26px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      .logo {
+        width: 110px;
+      }
+
+      .whatsapp {
+        padding: 12px 16px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -114,10 +191,10 @@
 <section>
   <h2>About Us</h2>
   <p>
-    <strong>Halder & Co.</strong> is a trusted trading firm based in Topsia, Millatnagar Society, Kolkata, supplying quality
-    plywood, laminates, decorative panels, adhesives and veneer to carpenters, contractors,
-    interior designers and builders. We are known for competitive trade rates, reliable supply
-    and prompt local delivery.
+    <strong>Halder & Co.</strong> is a trusted trading firm based in Topsia, Millatnagar Society, Kolkata,
+    supplying quality plywood, laminates, decorative panels, adhesives and veneer to carpenters,
+    contractors, interior designers and builders. We are known for competitive trade rates,
+    reliable supply and prompt local delivery.
   </p>
 </section>
 
@@ -144,27 +221,47 @@
 
 <section class="contact">
   <h2>Contact Us</h2>
+
   <p><strong>Address:</strong><br>
     73C/2 Topsia Road South, Kolkata – 700046<br>
     (Millatnagar Society)
   </p>
 
-  <p><strong>Mobile:</strong> <a href="tel:+919831776985">+91 98317 76985</a></p>
+  <p><strong>Mobile:</strong>
+    <a href="tel:+919831776985">+91 98317 76985</a>
+  </p>
 
   <p><strong>Email:</strong><br>
-    <a href="mailto:halderandco.traders@gmail.com">halderandco.traders@gmail.com</a>
+    <a href="mailto:halderandco.traders@gmail.com">
+      halderandco.traders@gmail.com
+    </a>
   </p>
 
   <p>
-    <a href="https://www.google.com/maps/search/?api=1&query=Halder+%26+Co.%2C+Topsia" target="_blank">📍 Get Directions on Google Maps</a>
+    <a href="https://www.google.com/maps/search/?api=1&query=Halder+%26+Co.%2C+Topsia" target="_blank">
+      📍 Get Directions on Google Maps
+    </a>
   </p>
+
+  <!-- Message Section -->
+  <div class="message-box">
+    <h3>Send Us a Message</h3>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="tel" placeholder="Mobile Number" required />
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
 </section>
 
 <footer>
   © 2026 Halder & Co. | Plywood & Laminates Dealer, Topsia, Kolkata
 </footer>
 
-<a class="whatsapp" href="https://wa.me/919831776985" target="_blank">💬 Chat on WhatsApp</a>
+<a class="whatsapp" href="https://wa.me/919831776985" target="_blank">
+  💬 Chat on WhatsApp
+</a>
 
 </body>
 </html>
