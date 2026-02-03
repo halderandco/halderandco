@@ -1,231 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Halder & Co.</title>
-  <link rel="icon" type="image/png" href="34391.png" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halder & Co. | Plywood & Laminates Dealer</title>
+<link rel="icon" type="image/png" href="34391.png">
 
-  <style>
-    :root {
-      --primary: #1f3d2b;
-      --bg: #f6f4ef;
-      --card: #ffffff;
-      --accent: #25D366;
-    }
+<style>
+:root{
+  --primary:#1f3d2b;
+  --accent:#25D366;
+  --bg:#f6f4ef;
+  --card:#ffffff;
+  --muted:#e6e6e6;
+}
 
-    * {
-      box-sizing: border-box;
-    }
+*{box-sizing:border-box;}
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: #2b2b2b;
-      line-height: 1.6;
-    }
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:#2b2b2b;
+  line-height:1.6;
+}
 
-    /* Header */
-    header {
-      background: var(--primary);
-      text-align: center;
-      padding: 40px 16px 30px;
-      color: #ffffff;
-    }
+/* Sticky Header */
+header{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:var(--primary);
+  color:#fff;
+  text-align:center;
+  padding:24px 16px;
+}
 
-    .logo {
-      width: 140px;
-      max-width: 45%;
-      border-radius: 50%;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-      margin-bottom: 16px;
-      background: #ffffff;
-      padding: 6px;
-    }
+.logo{
+  width:120px;
+  border-radius:50%;
+  background:#fff;
+  padding:6px;
+  box-shadow:0 6px 18px rgba(0,0,0,.3);
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 34px;
-      letter-spacing: 1px;
-      color: #ffffff;
-    }
+header h1{
+  margin:12px 0 4px;
+  font-size:32px;
+}
 
-    header p {
-      margin: 6px 0;
-      font-size: 15px;
-      color: #e6e6e6;
-    }
+header p{
+  margin:4px 0;
+  color:var(--muted);
+  font-size:15px;
+}
 
-    /* Sections */
-    section {
-      padding: 40px 16px;
-      max-width: 1000px;
-      margin: auto;
-    }
+/* Hero CTA */
+.hero-actions{
+  margin-top:14px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
 
-    h2 {
-      color: var(--primary);
-      margin-bottom: 18px;
-      font-size: 26px;
-    }
+.btn{
+  padding:10px 18px;
+  border-radius:30px;
+  font-size:14px;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-    /* Grid */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
+.btn-call{background:#fff;color:var(--primary);}
+.btn-wa{background:var(--accent);color:#fff;}
 
-    .card {
-      background: var(--card);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      font-size: 15px;
-    }
+/* Sections */
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:48px 16px;
+}
 
-    /* Contact & Message */
-    .contact {
-      background: #e9efe9;
-      border-radius: 12px;
-      padding: 30px 20px;
-    }
+h2{
+  color:var(--primary);
+  margin-bottom:18px;
+  font-size:26px;
+}
 
-    .message-box {
-      background: var(--card);
-      border-radius: 10px;
-      padding: 20px;
-      margin-top: 20px;
-    }
+/* Cards & Grid */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
 
-    .message-box h3 {
-      margin-top: 0;
-      color: var(--primary);
-    }
+.card{
+  background:var(--card);
+  padding:22px;
+  border-radius:14px;
+  box-shadow:0 8px 18px rgba(0,0,0,.08);
+  transition:.3s;
+}
 
-    .message-box form {
-      display: grid;
-      gap: 14px;
-    }
+.card:hover{transform:translateY(-6px);}
 
-    .message-box input,
-    .message-box textarea {
-      width: 100%;
-      padding: 12px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-      font-family: inherit;
-    }
+/* Highlights */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
+  text-align:center;
+}
 
-    .message-box textarea {
-      resize: vertical;
-      min-height: 90px;
-    }
+.stat{
+  background:var(--primary);
+  color:#fff;
+  padding:26px;
+  border-radius:14px;
+}
 
-    .message-box button {
-      background: var(--primary);
-      color: #ffffff;
-      border: none;
-      padding: 12px;
-      font-size: 15px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
+.stat h3{margin:0;font-size:28px;}
+.stat p{margin:6px 0 0;font-size:14px;}
 
-    .message-box button:hover {
-      opacity: 0.9;
-    }
+/* Contact */
+.contact{
+  background:#e9efe9;
+  border-radius:16px;
+}
 
-    a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: bold;
-    }
+.message-box{
+  background:#fff;
+  padding:22px;
+  border-radius:14px;
+  margin-top:20px;
+}
 
-    footer {
-      background: var(--primary);
-      color: #ffffff;
-      text-align: center;
-      padding: 16px;
-      font-size: 14px;
-    }
+.message-box form{
+  display:grid;
+  gap:14px;
+}
 
-    /* WhatsApp Button */
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--accent);
-      color: #ffffff;
-      padding: 14px 20px;
-      border-radius: 30px;
-      font-size: 15px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.25);
-      z-index: 1000;
-    }
+input,textarea{
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:14px;
+}
 
-    /* Mobile */
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 26px;
-      }
+textarea{min-height:90px;}
 
-      h2 {
-        font-size: 22px;
-      }
+button{
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:12px;
+  border-radius:30px;
+  font-size:15px;
+  cursor:pointer;
+}
 
-      .logo {
-        width: 110px;
-      }
+/* Footer */
+footer{
+  background:var(--primary);
+  color:#fff;
+  text-align:center;
+  padding:18px;
+  font-size:14px;
+}
 
-      .whatsapp {
-        padding: 12px 16px;
-        font-size: 14px;
-      }
-    }
-  </style>
+/* WhatsApp Floating */
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:var(--accent);
+  color:#fff;
+  padding:14px 18px;
+  border-radius:30px;
+  font-size:15px;
+  box-shadow:0 8px 18px rgba(0,0,0,.3);
+  text-decoration:none;
+}
+
+/* Mobile */
+@media(max-width:600px){
+  header h1{font-size:26px;}
+  h2{font-size:22px;}
+  .logo{width:100px;}
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <img src="34391.png" alt="Halder & Co. Logo" class="logo" />
+  <img src="34391.png" class="logo" alt="Halder & Co Logo">
   <h1>HALDER & CO.</h1>
   <p><strong>Dealers & Traders</strong></p>
   <p>Plywood | Laminates | Decorative Panels | Adhesives | Veneer</p>
+
+  <div class="hero-actions">
+    <a href="tel:+919831776985" class="btn btn-call">📞 Call Now</a>
+    <a href="https://wa.me/919831776985" class="btn btn-wa">💬 WhatsApp</a>
+  </div>
 </header>
 
 <section>
   <h2>About Us</h2>
   <p>
-    <strong>Halder & Co.</strong> is a trusted trading firm based in Topsia,
-    Millatnagar Society, Kolkata, supplying quality plywood, laminates,
-    decorative panels, adhesives and veneer to carpenters, contractors,
-    interior designers and builders. We are known for competitive trade rates,
-    reliable supply and prompt local delivery.
+    <strong>Halder & Co.</strong> is a trusted plywood and interior material trading firm
+    based in Topsia, Millatnagar Society, Kolkata. We serve carpenters, contractors,
+    interior designers and builders with reliable materials, competitive trade pricing
+    and prompt local delivery.
   </p>
 </section>
 
 <section>
-  <h2>Our Products</h2>
+  <div class="stats">
+    <div class="stat"><h3>10+</h3><p>Years Trade Experience</p></div>
+    <div class="stat"><h3>500+</h3><p>Happy Trade Clients</p></div>
+    <div class="stat"><h3>100%</h3><p>Quality-Focused Supply</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Our Product Range</h2>
   <div class="grid">
     <div class="card">Commercial Plywood</div>
     <div class="card">Decorative & Exterior Laminates</div>
     <div class="card">Decorative Panels & MDF Boards</div>
-    <div class="card">Adhesives (White, SR & Lamination)</div>
+    <div class="card">Adhesives – White, SR, Lamination</div>
     <div class="card">Natural & Recon Veneers</div>
   </div>
 </section>
 
 <section>
-  <h2>Why Choose Us</h2>
+  <h2>Why Choose Halder & Co.</h2>
   <div class="grid">
-    <div class="card">✔ Competitive trade & contractor pricing</div>
-    <div class="card">✔ Trusted quality materials</div>
-    <div class="card">✔ Prompt delivery across Kolkata</div>
-    <div class="card">✔ Personalized service & support</div>
+    <div class="card">✔ Trade & Contractor-Friendly Pricing</div>
+    <div class="card">✔ Consistent Quality Materials</div>
+    <div class="card">✔ Fast Delivery Across Kolkata</div>
+    <div class="card">✔ Honest Advice & Support</div>
   </div>
 </section>
 
@@ -233,33 +249,21 @@
   <h2>Contact Us</h2>
 
   <p><strong>Address:</strong><br>
-    73C/2 Topsia Road South, Kolkata – 700046<br>
-    (Millatnagar Society)
-  </p>
+  73C/2 Topsia Road South, Kolkata – 700046<br>(Millatnagar Society)</p>
 
   <p><strong>Mobile:</strong>
-    <a href="tel:+919831776985">+91 98317 76985</a>
-  </p>
+  <a href="tel:+919831776985">+91 98317 76985</a></p>
 
   <p><strong>Email:</strong><br>
-    <a href="mailto:halderandco.traders@gmail.com">
-      halderandco.traders@gmail.com
-    </a>
-  </p>
-
-  <p>
-    <a href="https://www.google.com/maps/search/?api=1&query=Halder+%26+Co.%2C+Topsia" target="_blank">
-      📍 Get Directions on Google Maps
-    </a>
-  </p>
+  <a href="mailto:halderandco.traders@gmail.com">halderandco.traders@gmail.com</a></p>
 
   <div class="message-box">
-    <h3>Send Us a Message</h3>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="tel" placeholder="Mobile Number" required />
-      <textarea placeholder="Your Message"></textarea>
-      <button type="submit">Send Message</button>
+    <h3>Send a Quick Enquiry</h3>
+    <form onsubmit="window.location.href='https://wa.me/919831776985?text='+encodeURIComponent(this.msg.value); return false;">
+      <input type="text" placeholder="Your Name" required>
+      <input type="tel" placeholder="Mobile Number" required>
+      <textarea name="msg" placeholder="Your Requirement"></textarea>
+      <button type="submit">Send via WhatsApp</button>
     </form>
   </div>
 </section>
@@ -268,9 +272,7 @@
   © 2026 Halder & Co. | Plywood & Laminates Dealer, Topsia, Kolkata
 </footer>
 
-<a class="whatsapp" href="https://wa.me/919831776985" target="_blank">
-  💬 Chat on WhatsApp
-</a>
+<a class="whatsapp" href="https://wa.me/919831776985">💬 Chat on WhatsApp</a>
 
 </body>
 </html>
