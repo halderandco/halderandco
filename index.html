@@ -28,29 +28,33 @@
 
     /* Header */
     header {
-      background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9));
+      background: var(--primary);
       text-align: center;
       padding: 40px 16px 30px;
+      color: #ffffff;
     }
 
     .logo {
       width: 140px;
       max-width: 45%;
       border-radius: 50%;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
       margin-bottom: 16px;
+      background: #ffffff;
+      padding: 6px;
     }
 
     header h1 {
       margin: 0;
       font-size: 34px;
       letter-spacing: 1px;
-      color: var(--primary);
+      color: #ffffff;
     }
 
     header p {
       margin: 6px 0;
       font-size: 15px;
+      color: #e6e6e6;
     }
 
     /* Sections */
@@ -95,6 +99,11 @@
       margin-top: 20px;
     }
 
+    .message-box h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
     .message-box form {
       display: grid;
       gap: 14px;
@@ -117,7 +126,7 @@
 
     .message-box button {
       background: var(--primary);
-      color: #fff;
+      color: #ffffff;
       border: none;
       padding: 12px;
       font-size: 15px;
@@ -157,7 +166,7 @@
       z-index: 1000;
     }
 
-    /* Mobile Adjustments */
+    /* Mobile */
     @media (max-width: 600px) {
       header h1 {
         font-size: 26px;
@@ -191,9 +200,10 @@
 <section>
   <h2>About Us</h2>
   <p>
-    <strong>Halder & Co.</strong> is a trusted trading firm based in Topsia, Millatnagar Society, Kolkata,
-    supplying quality plywood, laminates, decorative panels, adhesives and veneer to carpenters,
-    contractors, interior designers and builders. We are known for competitive trade rates,
+    <strong>Halder & Co.</strong> is a trusted trading firm based in Topsia,
+    Millatnagar Society, Kolkata, supplying quality plywood, laminates,
+    decorative panels, adhesives and veneer to carpenters, contractors,
+    interior designers and builders. We are known for competitive trade rates,
     reliable supply and prompt local delivery.
   </p>
 </section>
@@ -243,7 +253,6 @@
     </a>
   </p>
 
-  <!-- Message Section -->
   <div class="message-box">
     <h3>Send Us a Message</h3>
     <form>
