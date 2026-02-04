@@ -35,7 +35,7 @@ header{
   background:var(--primary);
   color:#ffffff;
   text-align:center;
-  padding:80px 18px 64px;
+  padding:72px 18px 60px;
   position:relative;
 }
 
@@ -85,13 +85,13 @@ header p{
 section{
   max-width:1100px;
   margin:auto;
-  padding:80px 22px;
+  padding:78px 22px;
 }
 
 .soft{
   background:#ffffff;
   border-radius:34px;
-  padding:64px 52px;
+  padding:62px 50px;
   box-shadow:0 22px 54px rgba(0,0,0,.06);
 }
 
@@ -122,43 +122,41 @@ h2{
   box-shadow:0 20px 48px rgba(0,0,0,.07);
 }
 
-/* PHILOSOPHY */
+.card h3{
+  font-family:"Cormorant Garamond",serif;
+  font-size:21px;
+  color:var(--primary);
+  margin-top:0;
+}
+
+/* VALUES */
 .values{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:38px;
   margin-top:40px;
 }
+
 .values h4{
   font-family:"Cormorant Garamond",serif;
-  font-size:21px;
   margin-bottom:6px;
   color:var(--primary);
+  font-size:21px;
 }
 
 /* CONTACT */
 .contact{
   background:#e9efe9;
   border-radius:38px;
-  padding:70px 52px;
+  padding:68px 50px;
 }
+
 .contact a{
   color:var(--primary);
   text-decoration:none;
   font-weight:500;
 }
 
-/* STATUS */
-.status{
-  display:inline-block;
-  margin-top:12px;
-  padding:6px 14px;
-  border-radius:20px;
-  font-size:13px;
-  background:#dfe8e2;
-}
-
-/* MAP */
 .map-wrap{
   margin-top:38px;
   border-radius:30px;
@@ -170,26 +168,37 @@ h2{
 /* MESSAGE */
 .message-section{
   background:#ffffff;
-  margin-top:52px;
-  padding:48px;
+  margin-top:48px;
+  padding:46px;
   border-radius:30px;
   box-shadow:0 20px 46px rgba(0,0,0,.08);
 }
-.message-section select,
+
+.message-section h3{
+  font-family:"Cormorant Garamond",serif;
+  color:var(--primary);
+  margin-top:0;
+  font-size:26px;
+}
+
 .message-section textarea{
   width:100%;
-  padding:14px;
-  border-radius:14px;
+  height:110px;
+  padding:16px;
+  border-radius:16px;
   border:1px solid #ccc;
-  margin-top:14px;
+  font-family:"Source Sans 3",sans-serif;
+  font-size:15px;
 }
+
 .message-section button{
-  margin-top:20px;
-  padding:14px 34px;
+  margin-top:18px;
+  padding:13px 30px;
   background:var(--primary);
   color:#ffffff;
   border:none;
   border-radius:30px;
+  font-size:15px;
   cursor:pointer;
 }
 
@@ -198,43 +207,25 @@ footer{
   background:var(--primary);
   color:#ffffff;
   text-align:center;
-  padding:40px 18px;
+  padding:38px 18px;
   font-size:13.5px;
 }
 .footer-legal{
   font-size:12.5px;
-  opacity:.8;
+  opacity:.78;
   margin-top:6px;
 }
 
-/* UTILITIES */
-.utility-bar{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:#ffffff;
-  box-shadow:0 -8px 30px rgba(0,0,0,.15);
-  display:flex;
-  justify-content:space-around;
-  padding:10px;
-  z-index:999;
-}
-.utility-bar a{
-  text-decoration:none;
-  color:var(--primary);
-  font-size:14px;
-  font-weight:500;
-}
-
+/* WHATSAPP */
 .whatsapp{
   position:fixed;
-  bottom:72px;
+  bottom:20px;
   right:20px;
   background:var(--accent);
   color:#ffffff;
   padding:15px 22px;
   border-radius:36px;
+  font-size:15px;
   text-decoration:none;
   box-shadow:0 16px 38px rgba(0,0,0,.35);
 }
@@ -244,6 +235,25 @@ footer{
   h2{font-size:28px;}
 }
 </style>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"LocalBusiness",
+ "name":"Halder & Co.",
+ "image":"34391.png",
+ "telephone":"+919831776985",
+ "email":"halderandco.traders@gmail.com",
+ "address":{
+  "@type":"PostalAddress",
+  "streetAddress":"73C/2 Topsia Road South, Millatnagar Society",
+  "addressLocality":"Kolkata",
+  "postalCode":"700046",
+  "addressRegion":"WB",
+  "addressCountry":"IN"
+ }
+}
+</script>
 </head>
 
 <body>
@@ -271,11 +281,11 @@ footer{
 <section>
   <h2 id="productTitle"></h2>
   <div class="grid">
-    <div class="card" id="p1"></div>
-    <div class="card" id="p2"></div>
-    <div class="card" id="p3"></div>
-    <div class="card" id="p4"></div>
-    <div class="card" id="p5"></div>
+    <div class="card"><h3 id="p1"></h3></div>
+    <div class="card"><h3 id="p2"></h3></div>
+    <div class="card"><h3 id="p3"></h3></div>
+    <div class="card"><h3 id="p4"></h3></div>
+    <div class="card"><h3 id="p5"></h3></div>
   </div>
 </section>
 
@@ -303,15 +313,13 @@ footer{
     Millatnagar Society
   </p>
 
-  <p><strong>Phone</strong> —
+  <p><strong>Phone</strong><br>
     <a href="tel:+919831776985">+91 98317 76985</a>
   </p>
 
-  <p><strong>Email</strong> —
+  <p><strong>Email</strong><br>
     <a href="mailto:halderandco.traders@gmail.com">halderandco.traders@gmail.com</a>
   </p>
-
-  <div class="status" id="status"></div>
 
   <div class="map-wrap">
     <iframe src="https://www.google.com/maps?q=Halder+%26+Co.,+Topsia,+Kolkata&output=embed"
@@ -320,15 +328,11 @@ footer{
 
   <div class="message-section">
     <h3 id="messageTitle"></h3>
-    <select id="enquiryType">
-      <option>Commercial Plywood</option>
-      <option>Laminates</option>
-      <option>Decorative Panels</option>
-      <option>Adhesives</option>
-      <option>Veneer</option>
-    </select>
-    <textarea id="msgText" placeholder="Write your requirement"></textarea>
-    <button onclick="sendWhatsApp()">Send via WhatsApp</button>
+    <p class="subtle" id="messageText"></p>
+    <form onsubmit="window.location.href='https://wa.me/919831776985?text='+encodeURIComponent(this.msg.value); return false;">
+      <textarea name="msg" placeholder="Write your requirement here"></textarea>
+      <button type="submit">Send via WhatsApp</button>
+    </form>
   </div>
 </section>
 
@@ -339,48 +343,72 @@ footer{
 
 <a class="whatsapp" href="https://wa.me/919831776985">Chat on WhatsApp</a>
 
-<div class="utility-bar">
-  <a href="tel:+919831776985">Call</a>
-  <a href="https://wa.me/919831776985">WhatsApp</a>
-  <a href="https://www.google.com/maps?q=Halder+%26+Co.,+Topsia,+Kolkata">Directions</a>
-</div>
-
 <script>
-document.getElementById("year").textContent=new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
 
-/* BUSINESS HOURS */
-const hour=new Date().getHours();
-document.getElementById("status").innerText=
-(hour>=10 && hour<=19)?"Open now (10:00–19:00)":"Currently closed";
-
-/* WHATSAPP */
-function sendWhatsApp(){
-  const t=document.getElementById("enquiryType").value;
-  const m=document.getElementById("msgText").value;
-  window.location.href="https://wa.me/919831776985?text="+encodeURIComponent("Enquiry for "+t+": "+m);
-}
-
-/* LANGUAGE CONTENT */
 const C={
 en:{
 tagline:"Dealers & Traders",
 products:"Plywood • Laminates • Decorative Panels • Adhesives • Veneer",
 aboutTitle:"A Focused Trading Firm",
-aboutText:"Halder & Co. is a Kolkata-based trading firm supplying plywood and interior materials to carpenters, contractors, interior designers and builders. The firm operates with practical material selection, clear communication and quick local coordination.",
+aboutText:"Halder & Co. is a Kolkata-based trading firm supplying plywood and interior materials to carpenters, contractors, interior designers and builders. The firm operates with a clear focus on product suitability, transparent dealings and quick local coordination for deliveries within the city.",
 productTitle:"Product Coverage",
 p1:"Commercial Plywood",
 p2:"Decorative & Exterior Laminates",
 p3:"Decorative Panels & MDF Boards",
-p4:"Interior Adhesives",
+p4:"Adhesives for Interior Applications",
 p5:"Natural & Recon Veneers",
-philosophyTitle:"Working Principles",
-v1:"Trade-Oriented",vd1:"Structured for professional buying and project needs.",
-v2:"Material Awareness",vd2:"Products aligned with interior applications.",
-v3:"Clear Dealings",vd3:"Straightforward and transparent coordination.",
+philosophyTitle:"Our Working Approach",
+v1:"Trade-Oriented",vd1:"Structured for professional buyers and project-based requirements.",
+v2:"Material Awareness",vd2:"Product suggestions based on interior use and application.",
+v3:"Clear Communication",vd3:"Direct, practical and transparent coordination.",
 gbpTitle:"Google Business Profile Description",
-gbpText:"Halder & Co. is a trading firm in Topsia, Kolkata supplying plywood, laminates, decorative panels, adhesives and veneer for interior applications.",
+gbpText:"Halder & Co. is a trading firm in Topsia, Kolkata supplying plywood, laminates, decorative panels, adhesives and veneer for interior applications. Serving carpenters, contractors and interior professionals with local supply coordination.",
 contactTitle:"Contact Information",
-messageTitle:"Quick Enquiry"
+messageTitle:"Send an Enquiry",
+messageText:"Share your requirement and we will respond through WhatsApp."
+},
+bn:{
+tagline:"ডিলার ও ট্রেডার",
+products:"প্লাইউড • ল্যামিনেট • ডেকোরেটিভ প্যানেল • আঠা • ভেনিয়ার",
+aboutTitle:"একটি কেন্দ্রীভূত ট্রেডিং ফার্ম",
+aboutText:"হালদার অ্যান্ড কো. কলকাতাভিত্তিক একটি ট্রেডিং ফার্ম, যা কাঠমিস্ত্রি, কন্ট্রাক্টর ও ইন্টেরিয়র পেশাদারদের জন্য প্লাইউড ও ইন্টেরিয়র সামগ্রী সরবরাহ করে।",
+productTitle:"পণ্যের পরিসর",
+p1:"কমার্শিয়াল প্লাইউড",
+p2:"ডেকোরেটিভ ল্যামিনেট",
+p3:"ডেকোরেটিভ প্যানেল ও এমডিএফ বোর্ড",
+p4:"ইন্টেরিয়র আঠা",
+p5:"প্রাকৃতিক ও রিকন ভেনিয়ার",
+philosophyTitle:"আমাদের কাজের ধরণ",
+v1:"ট্রেড-কেন্দ্রিক",vd1:"পেশাদার ক্রেতাদের জন্য।",
+v2:"উপযুক্ত নির্বাচন",vd2:"ব্যবহার অনুযায়ী পণ্য।",
+v3:"স্পষ্ট যোগাযোগ",vd3:"সহজ ও স্বচ্ছ লেনদেন।",
+gbpTitle:"গুগল বিজনেস বিবরণ",
+gbpText:"টপসিয়া, কলকাতার একটি প্লাইউড ও ইন্টেরিয়র সামগ্রীর ট্রেডিং ফার্ম।",
+contactTitle:"যোগাযোগের তথ্য",
+messageTitle:"বার্তা পাঠান",
+messageText:"আপনার প্রয়োজন লিখুন।"
+},
+hi:{
+tagline:"डीलर और ट्रेडर्स",
+products:"प्लाइवुड • लैमिनेट • डेकोरेटिव पैनल • चिपकने वाले • वेनियर",
+aboutTitle:"एक केंद्रित ट्रेडिंग फर्म",
+aboutText:"हलदर एंड कंपनी कोलकाता स्थित एक ट्रेडिंग फर्म है जो प्लाइवुड और इंटीरियर सामग्री की आपूर्ति करती है।",
+productTitle:"उत्पाद श्रेणी",
+p1:"कमर्शियल प्लाइवुड",
+p2:"डेकोरेटिव लैमिनेट",
+p3:"डेकोरेटिव पैनल और MDF बोर्ड",
+p4:"इंटीरियर एडहेसिव",
+p5:"प्राकृतिक और रिकॉन वेनियर",
+philosophyTitle:"हमारा कार्य दृष्टिकोण",
+v1:"ट्रेड केंद्रित",vd1:"पेशेवर खरीदारों के लिए।",
+v2:"सही चयन",vd2:"उपयोग के अनुसार सामग्री।",
+v3:"स्पष्ट संवाद",vd3:"सीधा और पारदर्शी।",
+gbpTitle:"गूगल बिजनेस विवरण",
+gbpText:"टोपसिया, कोलकाता में स्थित प्लाइवुड और इंटीरियर सामग्री की ट्रेडिंग फर्म।",
+contactTitle:"संपर्क जानकारी",
+messageTitle:"संदेश भेजें",
+messageText:"अपनी आवश्यकता लिखें।"
 }
 };
 
@@ -391,9 +419,9 @@ Object.keys(C[l]).forEach(id=>{
 });
 document.querySelectorAll(".lang-switch button").forEach(b=>b.classList.remove("active"));
 document.getElementById("btn-"+l).classList.add("active");
-localStorage.setItem("lang",l);
 }
-setLang(localStorage.getItem("lang")||"en");
+
+setLang("en");
 </script>
 
 </body>
