@@ -10,7 +10,6 @@
 
 <link rel="icon" type="image/png" href="34391.png">
 
-<!-- Elegant Royal Typography -->
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -202,12 +201,13 @@ footer{
   background:var(--primary);
   color:#ffffff;
   text-align:center;
-  padding:30px 18px;
+  padding:36px 18px;
   font-size:13.5px;
 }
 .footer-legal{
   font-size:12.5px;
   opacity:.75;
+  margin-top:6px;
 }
 
 /* WHATSAPP */
@@ -326,18 +326,21 @@ footer{
 </section>
 
 <footer>
+  <span id="year"></span> Halder & Co.
   <div class="footer-legal">GSTIN: 19AASFH5716J1ZS</div>
 </footer>
 
 <a class="whatsapp" href="https://wa.me/919831776985">Chat on WhatsApp</a>
 
 <script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
 const C={
 en:{
 tagline:"Dealers & Traders",
 products:"Plywood • Laminates • Decorative Panels • Adhesives • Veneer",
 aboutTitle:"A Focused Trading Firm",
-aboutText:"Halder & Co. is a Kolkata-based trading firm supplying plywood and interior materials to carpenters, contractors, interior designers and builders, with prompt local delivery.",
+aboutText:"Halder & Co. is a Kolkata-based trading firm supplying plywood and interior materials to carpenters, contractors, interior designers and builders.",
 productTitle:"Product Coverage",
 p1:"Commercial Plywood",
 p2:"Decorative & Exterior Laminates",
@@ -358,7 +361,7 @@ bn:{
 tagline:"ডিলার ও ট্রেডার",
 products:"প্লাইউড • ল্যামিনেট • ডেকোরেটিভ প্যানেল • আঠা • ভেনিয়ার",
 aboutTitle:"একটি নির্ভরযোগ্য ট্রেডিং ফার্ম",
-aboutText:"হালদার অ্যান্ড কো. কলকাতাভিত্তিক একটি প্লাইউড ও ইন্টেরিয়র ট্রেডিং ফার্ম, যেখানে স্থানীয় ডেলিভারি দেওয়া হয়।",
+aboutText:"হালদার অ্যান্ড কো. কলকাতাভিত্তিক একটি ট্রেডিং ফার্ম যা প্লাইউড ও ইন্টেরিয়র সামগ্রী সরবরাহ করে।",
 productTitle:"পণ্যের পরিসর",
 p1:"কমার্শিয়াল প্লাইউড",
 p2:"ডেকোরেটিভ ল্যামিনেট",
@@ -379,7 +382,7 @@ hi:{
 tagline:"डीलर और ट्रेडर्स",
 products:"प्लाइवुड • लैमिनेट • डेकोरेटिव पैनल • चिपकने वाले • वेनियर",
 aboutTitle:"एक विश्वसनीय ट्रेडिंग फर्म",
-aboutText:"हलदर एंड कंपनी कोलकाता स्थित प्लाइवुड और इंटीरियर सामग्री की ट्रेडिंग फर्म है, जो स्थानीय स्तर पर आपूर्ति करती है।",
+aboutText:"हलदर एंड कंपनी कोलकाता स्थित प्लाइवुड और इंटीरियर सामग्री की ट्रेडिंग फर्म है।",
 productTitle:"उत्पाद श्रेणी",
 p1:"कमर्शियल प्लाइवुड",
 p2:"डेकोरेटिव लैमिनेट",
@@ -406,6 +409,7 @@ Object.keys(C[l]).forEach(id=>{
 document.querySelectorAll(".lang-switch button").forEach(b=>b.classList.remove("active"));
 document.getElementById("btn-"+l).classList.add("active");
 }
+
 setLang("en");
 </script>
 
