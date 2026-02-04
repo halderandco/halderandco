@@ -35,12 +35,12 @@ header{
   background:var(--primary);
   color:#ffffff;
   text-align:center;
-  padding:72px 18px 60px;
+  padding:78px 18px 64px;
   position:relative;
 }
 
 .logo{
-  width:112px;
+  width:128px;
   background:#ffffff;
   padding:6px;
   border-radius:50%;
@@ -54,10 +54,17 @@ header h1{
   margin:22px 0 6px;
 }
 
-header p{
-  font-size:15px;
-  margin:4px 0;
-  color:#e2e8e4;
+.header-role{
+  font-size:16px;
+  letter-spacing:.6px;
+  margin-top:6px;
+  color:#f0f5f2;
+}
+
+.header-products{
+  font-size:14px;
+  margin-top:10px;
+  color:#d6e0da;
 }
 
 /* LANGUAGE SWITCH */
@@ -117,16 +124,16 @@ h2{
 
 .card{
   background:var(--card);
-  padding:38px;
+  padding:34px;
   border-radius:28px;
   box-shadow:0 20px 48px rgba(0,0,0,.07);
 }
 
 .card h3{
   font-family:"Cormorant Garamond",serif;
-  font-size:21px;
+  font-size:20px;
   color:var(--primary);
-  margin-top:0;
+  margin:0;
 }
 
 /* VALUES */
@@ -267,8 +274,8 @@ footer{
 
   <img src="34391.png" class="logo" alt="Halder & Co Logo">
   <h1>HALDER & CO.</h1>
-  <p id="tagline"></p>
-  <p id="products"></p>
+  <div class="header-role" id="tagline"></div>
+  <div class="header-products" id="products"></div>
 </header>
 
 <section>
@@ -329,9 +336,15 @@ footer{
   <div class="message-section">
     <h3 id="messageTitle"></h3>
     <p class="subtle" id="messageText"></p>
-    <form onsubmit="window.location.href='https://wa.me/919831776985?text='+encodeURIComponent(this.msg.value); return false;">
+    <form onsubmit="
+      window.location.href=
+      'mailto:halderandco.traders@gmail.com?subject='+
+      encodeURIComponent('Enquiry – Halder & Co.')+
+      '&body='+
+      encodeURIComponent(this.msg.value);
+      return false;">
       <textarea name="msg" placeholder="Write your requirement here"></textarea>
-      <button type="submit">Send via WhatsApp</button>
+      <button type="submit">Send via Email</button>
     </form>
   </div>
 </section>
@@ -349,66 +362,66 @@ document.getElementById("year").textContent = new Date().getFullYear();
 const C={
 en:{
 tagline:"Dealers & Traders",
-products:"Plywood • Laminates • Decorative Panels • Adhesives • Veneer",
+products:"Plywood • Laminates • Panels • Adhesives • Veneer",
 aboutTitle:"A Focused Trading Firm",
-aboutText:"Halder & Co. is a Kolkata-based trading firm supplying plywood and interior materials to carpenters, contractors, interior designers and builders. The firm operates with a clear focus on product suitability, transparent dealings and quick local coordination for deliveries within the city.",
+aboutText:"Halder & Co. is a Kolkata-based trading firm supplying plywood and interior materials to carpenters, contractors, interior designers and builders. The firm focuses on suitable material selection, clear communication and quick local coordination for deliveries within the city.",
 productTitle:"Product Coverage",
-p1:"Commercial Plywood",
+p1:"Commercial Plywood (all common sizes)",
 p2:"Decorative & Exterior Laminates",
 p3:"Decorative Panels & MDF Boards",
-p4:"Adhesives for Interior Applications",
+p4:"Adhesives for Furniture & Interiors",
 p5:"Natural & Recon Veneers",
 philosophyTitle:"Our Working Approach",
-v1:"Trade-Oriented",vd1:"Structured for professional buyers and project-based requirements.",
-v2:"Material Awareness",vd2:"Product suggestions based on interior use and application.",
-v3:"Clear Communication",vd3:"Direct, practical and transparent coordination.",
+v1:"Trade-Oriented",vd1:"Structured for carpenters, contractors and interior professionals.",
+v2:"Practical Selection",vd2:"Materials suggested based on actual site usage.",
+v3:"Clear Coordination",vd3:"Direct and transparent communication.",
 gbpTitle:"Google Business Profile Description",
-gbpText:"Halder & Co. is a trading firm in Topsia, Kolkata supplying plywood, laminates, decorative panels, adhesives and veneer for interior applications. Serving carpenters, contractors and interior professionals with local supply coordination.",
+gbpText:"Halder & Co. is a trading firm in Topsia, Kolkata supplying plywood, laminates, decorative panels, adhesives and veneer for interior applications.",
 contactTitle:"Contact Information",
 messageTitle:"Send an Enquiry",
-messageText:"Share your requirement and we will respond through WhatsApp."
+messageText:"Write your requirement and send it directly to our email."
 },
 bn:{
 tagline:"ডিলার ও ট্রেডার",
-products:"প্লাইউড • ল্যামিনেট • ডেকোরেটিভ প্যানেল • আঠা • ভেনিয়ার",
+products:"প্লাইউড • ল্যামিনেট • প্যানেল • আঠা • ভেনিয়ার",
 aboutTitle:"একটি কেন্দ্রীভূত ট্রেডিং ফার্ম",
-aboutText:"হালদার অ্যান্ড কো. কলকাতাভিত্তিক একটি ট্রেডিং ফার্ম, যা কাঠমিস্ত্রি, কন্ট্রাক্টর ও ইন্টেরিয়র পেশাদারদের জন্য প্লাইউড ও ইন্টেরিয়র সামগ্রী সরবরাহ করে।",
+aboutText:"হালদার অ্যান্ড কো. কলকাতাভিত্তিক একটি ট্রেডিং ফার্ম যা কাঠমিস্ত্রি, কন্ট্রাক্টর ও ইন্টেরিয়র পেশাদারদের জন্য প্লাইউড ও ইন্টেরিয়র সামগ্রী সরবরাহ করে।",
 productTitle:"পণ্যের পরিসর",
 p1:"কমার্শিয়াল প্লাইউড",
 p2:"ডেকোরেটিভ ল্যামিনেট",
-p3:"ডেকোরেটিভ প্যানেল ও এমডিএফ বোর্ড",
-p4:"ইন্টেরিয়র আঠা",
-p5:"প্রাকৃতিক ও রিকন ভেনিয়ার",
+p3:"ডেকোরেটিভ প্যানেল ও এমডিএফ",
+p4:"ফার্নিচার আঠা",
+p5:"ভেনিয়ার",
 philosophyTitle:"আমাদের কাজের ধরণ",
-v1:"ট্রেড-কেন্দ্রিক",vd1:"পেশাদার ক্রেতাদের জন্য।",
-v2:"উপযুক্ত নির্বাচন",vd2:"ব্যবহার অনুযায়ী পণ্য।",
-v3:"স্পষ্ট যোগাযোগ",vd3:"সহজ ও স্বচ্ছ লেনদেন।",
+v1:"ট্রেড-কেন্দ্রিক",vd1:"পেশাদারদের জন্য।",
+v2:"ব্যবহারভিত্তিক নির্বাচন",vd2:"সাইট অনুযায়ী পণ্য।",
+v3:"সহজ সমন্বয়",vd3:"স্পষ্ট যোগাযোগ।",
 gbpTitle:"গুগল বিজনেস বিবরণ",
 gbpText:"টপসিয়া, কলকাতার একটি প্লাইউড ও ইন্টেরিয়র সামগ্রীর ট্রেডিং ফার্ম।",
-contactTitle:"যোগাযোগের তথ্য",
+contactTitle:"যোগাযোগ",
 messageTitle:"বার্তা পাঠান",
-messageText:"আপনার প্রয়োজন লিখুন।"
+messageText:"আপনার প্রয়োজন লিখে ইমেইল পাঠান।"
 },
 hi:{
 tagline:"डीलर और ट्रेडर्स",
-products:"प्लाइवुड • लैमिनेट • डेकोरेटिव पैनल • चिपकने वाले • वेनियर",
+products:"प्लाइवुड • लैमिनेट • पैनल • चिपकने वाले • वेनियर",
 aboutTitle:"एक केंद्रित ट्रेडिंग फर्म",
 aboutText:"हलदर एंड कंपनी कोलकाता स्थित एक ट्रेडिंग फर्म है जो प्लाइवुड और इंटीरियर सामग्री की आपूर्ति करती है।",
 productTitle:"उत्पाद श्रेणी",
 p1:"कमर्शियल प्लाइवुड",
 p2:"डेकोरेटिव लैमिनेट",
-p3:"डेकोरेटिव पैनल और MDF बोर्ड",
-p4:"इंटीरियर एडहेसिव",
-p5:"प्राकृतिक और रिकॉन वेनियर",
+p3:"डेकोरेटिव पैनल और MDF",
+p4:"फर्नीचर एडहेसिव",
+p5:"वेनियर",
 philosophyTitle:"हमारा कार्य दृष्टिकोण",
-v1:"ट्रेड केंद्रित",vd1:"पेशेवर खरीदारों के लिए।",
-v2:"सही चयन",vd2:"उपयोग के अनुसार सामग्री।",
-v3:"स्पष्ट संवाद",vd3:"सीधा और पारदर्शी।",
+v1:"ट्रेड केंद्रित",vd1:"पेशेवरों के लिए।",
+v2:"व्यावहारिक चयन",vd2:"उपयोग अनुसार सामग्री।",
+v3:"स्पष्ट समन्वय",vd3:"सीधा संवाद।",
 gbpTitle:"गूगल बिजनेस विवरण",
 gbpText:"टोपसिया, कोलकाता में स्थित प्लाइवुड और इंटीरियर सामग्री की ट्रेडिंग फर्म।",
 contactTitle:"संपर्क जानकारी",
 messageTitle:"संदेश भेजें",
-messageText:"अपनी आवश्यकता लिखें।"
+messageText:"अपनी आवश्यकता लिखकर ईमेल करें।"
 }
 };
 
