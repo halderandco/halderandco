@@ -35,12 +35,12 @@ header{
   background:var(--primary);
   color:#ffffff;
   text-align:center;
-  padding:78px 18px 64px;
+  padding:80px 18px 66px;
   position:relative;
 }
 
 .logo{
-  width:128px;
+  width:132px;
   background:#ffffff;
   padding:6px;
   border-radius:50%;
@@ -158,26 +158,40 @@ h2{
   padding:68px 50px;
 }
 
-.contact-grid{
+.contact-block{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:32px;
+  gap:30px;
+  margin-top:24px;
+}
+
+.contact-item{
+  background:#ffffff;
+  padding:24px 26px;
+  border-radius:24px;
+  box-shadow:0 16px 36px rgba(0,0,0,.08);
 }
 
 .contact-item strong{
   display:block;
+  color:var(--primary);
   margin-bottom:6px;
 }
 
-.contact a{
-  color:var(--primary);
+.contact-item a{
+  color:#1f3d2b;
   text-decoration:none;
   font-weight:500;
+  word-break:break-word;
 }
 
-/* MAP */
+.social-links a{
+  display:block;
+  margin-top:8px;
+}
+
 .map-wrap{
-  margin-top:38px;
+  margin-top:42px;
   border-radius:30px;
   overflow:hidden;
   box-shadow:0 22px 50px rgba(0,0,0,.15);
@@ -254,25 +268,6 @@ footer{
   h2{font-size:28px;}
 }
 </style>
-
-<script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"LocalBusiness",
- "name":"Halder & Co.",
- "image":"34391.png",
- "telephone":"+919831776985",
- "email":"halderandco.traders@gmail.com",
- "address":{
-  "@type":"PostalAddress",
-  "streetAddress":"73C/2 Topsia Road South, Millatnagar Society",
-  "addressLocality":"Kolkata",
-  "postalCode":"700046",
-  "addressRegion":"WB",
-  "addressCountry":"IN"
- }
-}
-</script>
 </head>
 
 <body>
@@ -290,64 +285,32 @@ footer{
   <div class="header-products" id="products"></div>
 </header>
 
-<section>
-  <div class="soft">
-    <h2 id="aboutTitle"></h2>
-    <p class="subtle" id="aboutText"></p>
-  </div>
-</section>
-
-<section>
-  <h2 id="productTitle"></h2>
-  <div class="grid">
-    <div class="card"><h3 id="p1"></h3></div>
-    <div class="card"><h3 id="p2"></h3></div>
-    <div class="card"><h3 id="p3"></h3></div>
-    <div class="card"><h3 id="p4"></h3></div>
-    <div class="card"><h3 id="p5"></h3></div>
-  </div>
-</section>
-
-<section>
-  <h2 id="philosophyTitle"></h2>
-  <div class="values">
-    <div><h4 id="v1"></h4><p id="vd1"></p></div>
-    <div><h4 id="v2"></h4><p id="vd2"></p></div>
-    <div><h4 id="v3"></h4><p id="vd3"></p></div>
-  </div>
-</section>
-
 <section class="contact">
   <h2 id="contactTitle"></h2>
 
-  <div class="contact-grid">
+  <div class="contact-block">
     <div class="contact-item">
-      📍 <strong>Address</strong>
-      73C/2 Topsia Road South Kolkata 700046<br>Millatnagar Society
+      <strong>📍 Address</strong>
+      73C/2 Topsia Road South Kolkata 700046<br>
+      Millatnagar Society
     </div>
 
     <div class="contact-item">
-      📞 <strong>Phone</strong>
+      <strong>📞 Phone</strong>
       <a href="tel:+919831776985">+91 98317 76985</a>
     </div>
 
     <div class="contact-item">
-      ✉️ <strong>Email</strong>
+      <strong>✉️ Email</strong>
       <a href="mailto:halderandco.traders@gmail.com">halderandco.traders@gmail.com</a>
     </div>
 
-    <div class="contact-item">
-      📸 <strong>Instagram</strong>
-      <a href="https://www.instagram.com/halderandco.9831776985/" target="_blank">
-        @halderandco.9831776985
-      </a>
-    </div>
-
-    <div class="contact-item">
-      ⭐ <strong>Google Business</strong>
-      <a href="https://www.google.com/search?q=Halder+%26+Co.+Topsia+Kolkata" target="_blank">
-        View Google Profile
-      </a>
+    <div class="contact-item social-links">
+      <strong>🔗 Business Profiles</strong>
+      <a href="https://www.instagram.com/halderandco.9831776985" target="_blank">📸 Instagram</a>
+      <a href="https://www.google.com/maps?q=Halder+%26+Co.,+Topsia,+Kolkata" target="_blank">📍 Google Business Profile</a>
+      <a href="https://IndiaMART.in/JAey5m6k" target="_blank">🏗️ IndiaMART</a>
+      <a href="https://jsdl.in/DT-37U56RJWC1G" target="_blank">📖 Justdial</a>
     </div>
   </div>
 
@@ -367,7 +330,7 @@ footer{
       encodeURIComponent(this.msg.value);
       return false;">
       <textarea name="msg" placeholder="Write your requirement here"></textarea>
-      <button type="submit">✍️ Send via Email</button>
+      <button type="submit">Send via Email</button>
     </form>
   </div>
 </section>
@@ -377,7 +340,7 @@ footer{
   <div class="footer-legal">GSTIN: 19AASFH5716J1ZS</div>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/919831776985">💬 Chat on WhatsApp</a>
+<a class="whatsapp" href="https://wa.me/919831776985">Chat on WhatsApp</a>
 
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
@@ -386,18 +349,6 @@ const C={
 en:{
 tagline:"Dealers & Traders",
 products:"Plywood • Laminates • Panels • Adhesives • Veneer",
-aboutTitle:"A Focused Trading Firm",
-aboutText:"Halder & Co. is a Kolkata-based trading firm supplying plywood and interior materials to carpenters, contractors, interior designers and builders.",
-productTitle:"Product Coverage",
-p1:"Commercial Plywood",
-p2:"Decorative Laminates",
-p3:"Panels & MDF Boards",
-p4:"Adhesives for Interiors",
-p5:"Natural & Recon Veneers",
-philosophyTitle:"Our Working Approach",
-v1:"Trade-Oriented",vd1:"Built for professional buyers.",
-v2:"Practical Selection",vd2:"Material based on site usage.",
-v3:"Clear Coordination",vd3:"Direct and transparent communication.",
 contactTitle:"Contact Information",
 messageTitle:"Send an Enquiry",
 messageText:"Write your requirement and send it directly to our email."
@@ -405,40 +356,16 @@ messageText:"Write your requirement and send it directly to our email."
 bn:{
 tagline:"ডিলার ও ট্রেডার",
 products:"প্লাইউড • ল্যামিনেট • প্যানেল • আঠা • ভেনিয়ার",
-aboutTitle:"একটি কেন্দ্রীভূত ট্রেডিং ফার্ম",
-aboutText:"হালদার অ্যান্ড কো. কলকাতাভিত্তিক একটি ট্রেডিং ফার্ম।",
-productTitle:"পণ্যের পরিসর",
-p1:"কমার্শিয়াল প্লাইউড",
-p2:"ডেকোরেটিভ ল্যামিনেট",
-p3:"প্যানেল ও এমডিএফ",
-p4:"ইন্টেরিয়র আঠা",
-p5:"ভেনিয়ার",
-philosophyTitle:"আমাদের কাজের ধরণ",
-v1:"ট্রেড-কেন্দ্রিক",vd1:"পেশাদারদের জন্য।",
-v2:"ব্যবহারভিত্তিক",vd2:"সাইট অনুযায়ী পণ্য।",
-v3:"সহজ সমন্বয়",vd3:"স্বচ্ছ যোগাযোগ।",
 contactTitle:"যোগাযোগ",
 messageTitle:"বার্তা পাঠান",
-messageText:"ইমেইলের মাধ্যমে পাঠান।"
+messageText:"আপনার প্রয়োজন লিখে ইমেইল পাঠান।"
 },
 hi:{
 tagline:"डीलर और ट्रेडर्स",
-products:"प्लाइवुड • लैमिनेट • पैनल • एडहेसिव • वेनियर",
-aboutTitle:"एक केंद्रित ट्रेडिंग फर्म",
-aboutText:"हलदर एंड कंपनी कोलकाता स्थित एक ट्रेडिंग फर्म है।",
-productTitle:"उत्पाद श्रेणी",
-p1:"कमर्शियल प्लाइवुड",
-p2:"डेकोरेटिव लैमिनेट",
-p3:"पैनल और MDF",
-p4:"इंटीरियर एडहेसिव",
-p5:"वेनियर",
-philosophyTitle:"कार्य दृष्टिकोण",
-v1:"ट्रेड केंद्रित",vd1:"पेशेवरों के लिए।",
-v2:"व्यावहारिक",vd2:"उपयोग अनुसार चयन।",
-v3:"स्पष्ट संवाद",vd3:"सीधा समन्वय।",
+products:"प्लाइवुड • लैमिनेट • पैनल • चिपकने वाले • वेनियर",
 contactTitle:"संपर्क जानकारी",
 messageTitle:"संदेश भेजें",
-messageText:"ईमेल द्वारा भेजें।"
+messageText:"अपनी आवश्यकता लिखकर ईमेल करें।"
 }
 };
 
