@@ -31,51 +31,52 @@ body{
   line-height:1.85;
 }
 
-/* ================= HEADER (UNCHANGED) ================= */
+/* ================= HEADER (CORRECTED DESIGN) ================= */
 header{
   background:var(--primary);
-  color:#fff;
+  color:#ffffff;
   text-align:center;
-  padding:80px 18px 64px;
+  padding:88px 20px 72px;
   position:relative;
 }
 
 .logo{
-  width:132px;
-  background:#fff;
-  padding:6px;
+  width:150px;
+  background:#ffffff;
+  padding:8px;
   border-radius:50%;
-  box-shadow:0 18px 40px rgba(0,0,0,.35);
+  box-shadow:0 20px 46px rgba(0,0,0,.35);
 }
 
 header h1{
   font-family:"Cormorant Garamond",serif;
-  font-size:40px;
-  letter-spacing:1.6px;
-  margin:22px 0 6px;
+  font-size:42px;
+  letter-spacing:1.8px;
+  margin:26px 0 10px;
 }
 
 .header-role{
-  font-size:16px;
-  letter-spacing:.6px;
+  font-size:17px;
+  letter-spacing:.8px;
+  margin-bottom:14px;
   color:#eef4f1;
 }
 
 .header-products{
-  font-size:14px;
-  color:#d6e0da;
-  margin-top:10px;
+  font-size:14.5px;
+  letter-spacing:.4px;
+  color:#d8e2dc;
 }
 
 /* Language Switch */
 .lang-switch{
   position:absolute;
-  top:18px;
-  right:18px;
+  top:20px;
+  right:20px;
 }
 .lang-switch button{
   background:transparent;
-  border:1px solid rgba(255,255,255,.4);
+  border:1px solid rgba(255,255,255,.45);
   color:#fff;
   padding:6px 12px;
   margin-left:6px;
@@ -84,7 +85,7 @@ header h1{
   cursor:pointer;
 }
 .lang-switch button.active{
-  background:#fff;
+  background:#ffffff;
   color:var(--primary);
 }
 
@@ -92,14 +93,14 @@ header h1{
 section{
   max-width:1100px;
   margin:auto;
-  padding:78px 22px;
+  padding:80px 22px;
 }
 
 .soft{
-  background:#fff;
-  border-radius:34px;
-  padding:62px 50px;
-  box-shadow:0 22px 54px rgba(0,0,0,.06);
+  background:#ffffff;
+  border-radius:36px;
+  padding:64px 52px;
+  box-shadow:0 24px 58px rgba(0,0,0,.06);
 }
 
 h2{
@@ -118,15 +119,15 @@ h2{
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:34px;
-  margin-top:44px;
+  gap:36px;
+  margin-top:46px;
 }
 
 .card{
   background:var(--card);
-  padding:34px;
-  border-radius:28px;
-  box-shadow:0 20px 48px rgba(0,0,0,.07);
+  padding:36px;
+  border-radius:30px;
+  box-shadow:0 22px 52px rgba(0,0,0,.07);
 }
 
 .card h3{
@@ -140,8 +141,8 @@ h2{
 .values{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:38px;
-  margin-top:40px;
+  gap:40px;
+  margin-top:44px;
 }
 
 .values h4{
@@ -154,8 +155,8 @@ h2{
 /* ================= CONTACT ================= */
 .contact{
   background:#e9efe9;
-  border-radius:38px;
-  padding:68px 50px;
+  border-radius:40px;
+  padding:72px 54px;
 }
 
 .contact a{
@@ -165,48 +166,49 @@ h2{
 }
 
 .business-links{
-  margin-top:28px;
-  padding-top:20px;
+  margin-top:30px;
+  padding-top:22px;
   border-top:1px solid rgba(0,0,0,.12);
 }
 
 .business-links a{
   display:block;
-  margin:8px 0;
+  margin:10px 0;
 }
 
 /* ================= MAP ================= */
 .map-wrap{
-  margin-top:38px;
-  border-radius:30px;
+  margin-top:40px;
+  border-radius:32px;
   overflow:hidden;
-  box-shadow:0 22px 50px rgba(0,0,0,.15);
+  box-shadow:0 24px 54px rgba(0,0,0,.15);
   filter:grayscale(100%);
 }
 
 /* ================= MESSAGE ================= */
 .message-section{
-  background:#fff;
-  margin-top:48px;
-  padding:46px;
-  border-radius:30px;
-  box-shadow:0 20px 46px rgba(0,0,0,.08);
+  background:#ffffff;
+  margin-top:50px;
+  padding:48px;
+  border-radius:32px;
+  box-shadow:0 22px 50px rgba(0,0,0,.08);
 }
 
 .message-section textarea{
   width:100%;
-  height:110px;
+  height:120px;
   padding:16px;
-  border-radius:16px;
+  border-radius:18px;
   border:1px solid #ccc;
+  font-family:"Source Sans 3",sans-serif;
 }
 
 /* ================= FOOTER ================= */
 footer{
   background:var(--primary);
-  color:#fff;
+  color:#ffffff;
   text-align:center;
-  padding:38px 18px;
+  padding:40px 18px;
   font-size:13.5px;
 }
 
@@ -222,11 +224,17 @@ footer{
   bottom:20px;
   right:20px;
   background:var(--accent);
-  color:#fff;
+  color:#ffffff;
   padding:15px 22px;
   border-radius:36px;
   text-decoration:none;
   box-shadow:0 16px 38px rgba(0,0,0,.35);
+}
+
+@media(max-width:600px){
+  header h1{font-size:32px;}
+  h2{font-size:28px;}
+  .logo{width:130px;}
 }
 </style>
 </head>
@@ -326,10 +334,10 @@ document.getElementById("year").textContent=new Date().getFullYear();
 
 const content={
 en:{
-tagline:"Dealers & Traders of Interior & Construction Materials",
+tagline:"Dealers & Traders",
 products:"Plywood • Laminates • Decorative Panels • Adhesives • Veneer",
 aboutTitle:"About the Firm",
-aboutText:"Halder & Co. is a trading firm based in Topsia, Kolkata, supplying essential interior and construction materials to carpenters, contractors and interior professionals. We focus on dependable sourcing and quick local delivery.",
+aboutText:"Halder & Co. is a trading firm based in Topsia, Kolkata, supplying essential interior and construction materials to carpenters, contractors and interior professionals. Our focus is on dependable sourcing, clear communication and quick local delivery within Kolkata.",
 productTitle:"Product Coverage",
 p1:"Commercial Plywood",
 p2:"Laminates & Decorative Sheets",
@@ -337,19 +345,19 @@ p3:"Adhesives & Bonding Materials",
 p4:"Veneer & Surface Finishes",
 p5:"Interior Support Materials",
 approachTitle:"How We Work",
-a1:"Practical Guidance",ad1:"Material suggestions based on actual usage.",
-a2:"Local Coordination",ad2:"Fast response and local delivery focus.",
+a1:"Practical Guidance",ad1:"Suggestions based on actual usage requirements.",
+a2:"Local Coordination",ad2:"Quick response and Kolkata-focused delivery.",
 a3:"Trade-Friendly Process",ad3:"Simple communication and transparent dealings.",
 gbpTitle:"Google Business Profile",
-gbpText:"Halder & Co. is listed on Google to help customers easily find our location and contact details.",
+gbpText:"Halder & Co. is listed on Google to help customers easily find our location, contact details and business information.",
 contactTitle:"Contact Information",
 messageTitle:"Send an Enquiry"
 },
 bn:{
-tagline:"ইন্টেরিয়র ও নির্মাণ সামগ্রীর ডিলার ও ট্রেডার",
+tagline:"ডিলার ও ট্রেডার",
 products:"প্লাইউড • ল্যামিনেট • ডেকোরেটিভ প্যানেল • আঠা • ভিনিয়ার",
 aboutTitle:"প্রতিষ্ঠান পরিচিতি",
-aboutText:"হালদার অ্যান্ড কোং কলকাতাভিত্তিক একটি ট্রেডিং ফার্ম যা কাঠমিস্ত্রি ও কন্ট্রাক্টরদের প্রয়োজনীয় সামগ্রী সরবরাহ করে।",
+aboutText:"হালদার অ্যান্ড কোং টপসিয়া, কলকাতাভিত্তিক একটি ট্রেডিং ফার্ম যা কাঠমিস্ত্রি, কন্ট্রাক্টর ও ইন্টেরিয়র পেশাজীবীদের প্রয়োজনীয় সামগ্রী সরবরাহ করে।",
 productTitle:"পণ্যের পরিধি",
 p1:"কমার্শিয়াল প্লাইউড",
 p2:"ল্যামিনেট ও শিট",
@@ -357,19 +365,19 @@ p3:"আঠা ও বন্ডিং",
 p4:"ভিনিয়ার ও সারফেস",
 p5:"ইন্টেরিয়র ম্যাটেরিয়াল",
 approachTitle:"আমাদের কাজের ধারা",
-a1:"সহজ পরামর্শ",ad1:"ব্যবহার অনুযায়ী পণ্য।",
+a1:"সহজ পরামর্শ",ad1:"প্রয়োজন অনুযায়ী পণ্য।",
 a2:"লোকাল ডেলিভারি",ad2:"দ্রুত সমন্বয়।",
-a3:"স্বচ্ছ পরিষেবা",ad3:"সহজ ও বাস্তবসম্মত।",
+a3:"স্বচ্ছ পরিষেবা",ad3:"বাস্তবসম্মত ও নির্ভরযোগ্য।",
 gbpTitle:"গুগল বিজনেস প্রোফাইল",
 gbpText:"গুগলে আমাদের ব্যবসার তথ্য উপলব্ধ।",
 contactTitle:"যোগাযোগ",
 messageTitle:"জিজ্ঞাসা পাঠান"
 },
 hi:{
-tagline:"इंटीरियर एवं निर्माण सामग्री के डीलर व ट्रेडर",
+tagline:"डीलर एवं ट्रेडर",
 products:"प्लाईवुड • लैमिनेट • डेकोरेटिव पैनल • एडहेसिव • वेनियर",
 aboutTitle:"फर्म परिचय",
-aboutText:"हलदर एंड कंपनी टोपसिया, कोलकाता स्थित एक ट्रेडिंग फर्म है।",
+aboutText:"हलदर एंड कंपनी टोपसिया, कोलकाता स्थित एक ट्रेडिंग फर्म है जो बढ़ई और ठेकेदारों को आवश्यक सामग्री प्रदान करती है।",
 productTitle:"उत्पाद श्रेणी",
 p1:"कमर्शियल प्लाईवुड",
 p2:"लैमिनेट शीट",
@@ -377,7 +385,7 @@ p3:"एडहेसिव",
 p4:"वेनियर",
 p5:"इंटीरियर सामग्री",
 approachTitle:"हमारा कार्य तरीका",
-a1:"स्पष्ट मार्गदर्शन",ad1:"उपयोग के अनुसार।",
+a1:"स्पष्ट मार्गदर्शन",ad1:"उपयोग के अनुसार सामग्री।",
 a2:"स्थानीय सप्लाई",ad2:"तेज़ समन्वय।",
 a3:"सरल प्रक्रिया",ad3:"पारदर्शी सेवा।",
 gbpTitle:"गूगल बिजनेस प्रोफाइल",
