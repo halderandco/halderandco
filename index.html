@@ -158,18 +158,24 @@ h2{
   padding:68px 50px;
 }
 
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:32px;
+}
+
+.contact-item strong{
+  display:block;
+  margin-bottom:6px;
+}
+
 .contact a{
   color:var(--primary);
   text-decoration:none;
   font-weight:500;
 }
 
-.contact-links a{
-  display:inline-block;
-  margin-right:18px;
-  margin-top:10px;
-}
-
+/* MAP */
 .map-wrap{
   margin-top:38px;
   border-radius:30px;
@@ -257,10 +263,6 @@ footer{
  "image":"34391.png",
  "telephone":"+919831776985",
  "email":"halderandco.traders@gmail.com",
- "sameAs":[
-   "https://www.instagram.com/",
-   "https://www.google.com/maps?q=Halder+%26+Co.,+Topsia,+Kolkata"
- ],
  "address":{
   "@type":"PostalAddress",
   "streetAddress":"73C/2 Topsia Road South, Millatnagar Society",
@@ -315,32 +317,38 @@ footer{
   </div>
 </section>
 
-<section>
-  <div class="soft">
-    <h2 id="gbpTitle"></h2>
-    <p class="subtle" id="gbpText"></p>
-  </div>
-</section>
-
 <section class="contact">
   <h2 id="contactTitle"></h2>
 
-  <p>📍 <strong>Address</strong><br>
-    73C/2 Topsia Road South Kolkata 700046<br>
-    Millatnagar Society
-  </p>
+  <div class="contact-grid">
+    <div class="contact-item">
+      📍 <strong>Address</strong>
+      73C/2 Topsia Road South Kolkata 700046<br>Millatnagar Society
+    </div>
 
-  <p>📞 <strong>Phone</strong><br>
-    <a href="tel:+919831776985">+91 98317 76985</a>
-  </p>
+    <div class="contact-item">
+      📞 <strong>Phone</strong>
+      <a href="tel:+919831776985">+91 98317 76985</a>
+    </div>
 
-  <p>✉️ <strong>Email</strong><br>
-    <a href="mailto:halderandco.traders@gmail.com">halderandco.traders@gmail.com</a>
-  </p>
+    <div class="contact-item">
+      ✉️ <strong>Email</strong>
+      <a href="mailto:halderandco.traders@gmail.com">halderandco.traders@gmail.com</a>
+    </div>
 
-  <div class="contact-links">
-    📸 <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-    🗺️ <a href="https://www.google.com/maps?q=Halder+%26+Co.,+Topsia,+Kolkata" target="_blank">Google Business Profile</a>
+    <div class="contact-item">
+      📸 <strong>Instagram</strong>
+      <a href="https://www.instagram.com/halderandco.9831776985/" target="_blank">
+        @halderandco.9831776985
+      </a>
+    </div>
+
+    <div class="contact-item">
+      ⭐ <strong>Google Business</strong>
+      <a href="https://www.google.com/search?q=Halder+%26+Co.+Topsia+Kolkata" target="_blank">
+        View Google Profile
+      </a>
+    </div>
   </div>
 
   <div class="map-wrap">
@@ -358,8 +366,8 @@ footer{
       '&body='+
       encodeURIComponent(this.msg.value);
       return false;">
-      <textarea name="msg" placeholder="📝 Write your requirement here"></textarea>
-      <button type="submit">Send via Email</button>
+      <textarea name="msg" placeholder="Write your requirement here"></textarea>
+      <button type="submit">✍️ Send via Email</button>
     </form>
   </div>
 </section>
@@ -379,19 +387,17 @@ en:{
 tagline:"Dealers & Traders",
 products:"Plywood • Laminates • Panels • Adhesives • Veneer",
 aboutTitle:"A Focused Trading Firm",
-aboutText:"Halder & Co. is a Kolkata-based trading firm supplying plywood and interior materials to carpenters, contractors, interior designers and builders. The firm focuses on suitable material selection, clear communication and quick local coordination for deliveries within the city.",
+aboutText:"Halder & Co. is a Kolkata-based trading firm supplying plywood and interior materials to carpenters, contractors, interior designers and builders.",
 productTitle:"Product Coverage",
-p1:"Commercial Plywood (common sizes)",
-p2:"Decorative & Exterior Laminates",
-p3:"Decorative Panels & MDF Boards",
-p4:"Adhesives for Furniture & Interiors",
+p1:"Commercial Plywood",
+p2:"Decorative Laminates",
+p3:"Panels & MDF Boards",
+p4:"Adhesives for Interiors",
 p5:"Natural & Recon Veneers",
 philosophyTitle:"Our Working Approach",
-v1:"Trade-Oriented",vd1:"Structured for carpenters, contractors and interior professionals.",
-v2:"Practical Selection",vd2:"Materials suggested based on site usage.",
+v1:"Trade-Oriented",vd1:"Built for professional buyers.",
+v2:"Practical Selection",vd2:"Material based on site usage.",
 v3:"Clear Coordination",vd3:"Direct and transparent communication.",
-gbpTitle:"Google Business Profile Description",
-gbpText:"Halder & Co. is a trading firm in Topsia, Kolkata supplying plywood, laminates, decorative panels, adhesives and veneer for interior applications.",
 contactTitle:"Contact Information",
 messageTitle:"Send an Enquiry",
 messageText:"Write your requirement and send it directly to our email."
@@ -400,43 +406,39 @@ bn:{
 tagline:"ডিলার ও ট্রেডার",
 products:"প্লাইউড • ল্যামিনেট • প্যানেল • আঠা • ভেনিয়ার",
 aboutTitle:"একটি কেন্দ্রীভূত ট্রেডিং ফার্ম",
-aboutText:"হালদার অ্যান্ড কো. কলকাতাভিত্তিক একটি ট্রেডিং ফার্ম যা কাঠমিস্ত্রি, কন্ট্রাক্টর ও ইন্টেরিয়র পেশাদারদের জন্য প্লাইউড ও ইন্টেরিয়র সামগ্রী সরবরাহ করে।",
+aboutText:"হালদার অ্যান্ড কো. কলকাতাভিত্তিক একটি ট্রেডিং ফার্ম।",
 productTitle:"পণ্যের পরিসর",
 p1:"কমার্শিয়াল প্লাইউড",
 p2:"ডেকোরেটিভ ল্যামিনেট",
-p3:"ডেকোরেটিভ প্যানেল ও এমডিএফ",
-p4:"ফার্নিচার আঠা",
+p3:"প্যানেল ও এমডিএফ",
+p4:"ইন্টেরিয়র আঠা",
 p5:"ভেনিয়ার",
 philosophyTitle:"আমাদের কাজের ধরণ",
 v1:"ট্রেড-কেন্দ্রিক",vd1:"পেশাদারদের জন্য।",
-v2:"ব্যবহারভিত্তিক নির্বাচন",vd2:"সাইট অনুযায়ী পণ্য।",
-v3:"সহজ সমন্বয়",vd3:"স্পষ্ট যোগাযোগ।",
-gbpTitle:"গুগল বিজনেস বিবরণ",
-gbpText:"টপসিয়া, কলকাতার একটি প্লাইউড ও ইন্টেরিয়র সামগ্রীর ট্রেডিং ফার্ম।",
+v2:"ব্যবহারভিত্তিক",vd2:"সাইট অনুযায়ী পণ্য।",
+v3:"সহজ সমন্বয়",vd3:"স্বচ্ছ যোগাযোগ।",
 contactTitle:"যোগাযোগ",
 messageTitle:"বার্তা পাঠান",
-messageText:"আপনার প্রয়োজন লিখে ইমেইল পাঠান।"
+messageText:"ইমেইলের মাধ্যমে পাঠান।"
 },
 hi:{
 tagline:"डीलर और ट्रेडर्स",
-products:"प्लाइवुड • लैमिनेट • पैनल • चिपकने वाले • वेनियर",
+products:"प्लाइवुड • लैमिनेट • पैनल • एडहेसिव • वेनियर",
 aboutTitle:"एक केंद्रित ट्रेडिंग फर्म",
-aboutText:"हलदर एंड कंपनी कोलकाता स्थित एक ट्रेडिंग फर्म है जो प्लाइवुड और इंटीरियर सामग्री की आपूर्ति करती है।",
+aboutText:"हलदर एंड कंपनी कोलकाता स्थित एक ट्रेडिंग फर्म है।",
 productTitle:"उत्पाद श्रेणी",
 p1:"कमर्शियल प्लाइवुड",
 p2:"डेकोरेटिव लैमिनेट",
-p3:"डेकोरेटिव पैनल और MDF",
-p4:"फर्नीचर एडहेसिव",
+p3:"पैनल और MDF",
+p4:"इंटीरियर एडहेसिव",
 p5:"वेनियर",
-philosophyTitle:"हमारा कार्य दृष्टिकोण",
+philosophyTitle:"कार्य दृष्टिकोण",
 v1:"ट्रेड केंद्रित",vd1:"पेशेवरों के लिए।",
-v2:"व्यावहारिक चयन",vd2:"उपयोग अनुसार सामग्री।",
-v3:"स्पष्ट समन्वय",vd3:"सीधा संवाद।",
-gbpTitle:"गूगल बिजनेस विवरण",
-gbpText:"टोपसिया, कोलकाता में स्थित प्लाइवुड और इंटीरियर सामग्री की ट्रेडिंग फर्म।",
+v2:"व्यावहारिक",vd2:"उपयोग अनुसार चयन।",
+v3:"स्पष्ट संवाद",vd3:"सीधा समन्वय।",
 contactTitle:"संपर्क जानकारी",
 messageTitle:"संदेश भेजें",
-messageText:"अपनी आवश्यकता लिखकर ईमेल करें।"
+messageText:"ईमेल द्वारा भेजें।"
 }
 };
 
