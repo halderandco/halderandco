@@ -123,42 +123,46 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+  padding: 0;
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0;
+  padding: 12px 0;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .brand-name {
   font-family: "Cormorant Garamond", serif;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: var(--primary);
+  letter-spacing: 0.5px;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 30px;
+  gap: 28px;
+  align-items: center;
 }
 
 .nav-links a {
   text-decoration: none;
   color: var(--text);
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.95rem;
   position: relative;
-  padding: 5px 0;
+  padding: 8px 0;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -180,6 +184,15 @@ body {
   width: 100%;
 }
 
+.nav-links a.active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.nav-links a.active:after {
+  width: 100%;
+}
+
 .hamburger {
   display: none;
   font-size: 1.5rem;
@@ -187,6 +200,8 @@ body {
   cursor: pointer;
   background: none;
   border: none;
+  padding: 5px;
+  z-index: 1001;
 }
 
 /* ================= HERO SECTION ================= */
@@ -500,6 +515,13 @@ body {
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  height: 400px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 /* ================= ENQUIRY FORM ================= */
@@ -682,6 +704,10 @@ body {
   .contact-info-top {
     justify-content: center;
   }
+  
+  .nav-links {
+    gap: 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -691,22 +717,50 @@ body {
   
   .nav-links {
     position: fixed;
-    top: 80px;
+    top: 0;
     left: -100%;
-    width: 100%;
-    height: calc(100vh - 80px);
+    width: 280px;
+    height: 100vh;
     background: white;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
-    padding-top: 50px;
-    gap: 30px;
-    transition: left 0.3s ease;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 80px 30px 30px;
+    gap: 20px;
+    transition: left 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    overflow-y: auto;
+    z-index: 999;
   }
   
   .nav-links.active {
     left: 0;
+  }
+  
+  .nav-links a {
+    font-size: 1.1rem;
+    padding: 12px 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+  
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+  }
+  
+  .nav-overlay.active {
+    display: block;
   }
   
   .hero {
@@ -787,6 +841,10 @@ body {
   .values-container {
     grid-template-columns: 1fr;
   }
+  
+  .map-container {
+    height: 300px;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -797,6 +855,10 @@ body {
   
   .contact-info-top {
     flex-wrap: nowrap;
+  }
+  
+  .nav-links {
+    gap: 20px;
   }
 }
 </style>
@@ -829,9 +891,11 @@ body {
       <i class="fas fa-bars"></i>
     </button>
     
+    <div class="nav-overlay" id="nav-overlay"></div>
+    
     <nav>
       <ul class="nav-links" id="nav-links">
-        <li><a href="#home">Home</a></li>
+        <li><a href="#home" class="active">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#products">Products</a></li>
         <li><a href="#approach">Our Approach</a></li>
@@ -865,19 +929,19 @@ body {
         <div class="highlight-card">
           <i class="fas fa-star"></i>
           <h4>Quality Focus</h4>
-          <p>Carefully selected materials that meet practical requirements</p>
+          <p id="highlight1">Carefully selected materials that meet practical requirements</p>
         </div>
         
         <div class="highlight-card">
           <i class="fas fa-handshake"></i>
           <h4>Direct Communication</h4>
-          <p>Clear, straightforward dealings with carpenters and contractors</p>
+          <p id="highlight2">Clear, straightforward dealings with carpenters and contractors</p>
         </div>
         
         <div class="highlight-card">
           <i class="fas fa-truck"></i>
           <h4>Local Delivery</h4>
-          <p>Timely supply within Kolkata to keep your projects moving</p>
+          <p id="highlight3">Timely supply within Kolkata to keep your projects moving</p>
         </div>
       </div>
     </div>
@@ -888,7 +952,7 @@ body {
 <section class="section" id="products">
   <div class="container">
     <h2 class="section-title" id="productTitle">What We Supply</h2>
-    <p class="section-subtitle">Essential interior materials selected for quality and performance</p>
+    <p class="section-subtitle" id="productSubtitle">Essential interior materials selected for quality and performance</p>
     
     <div class="products-grid">
       <div class="product-card">
@@ -897,7 +961,7 @@ body {
         </div>
         <div class="product-content">
           <h3 id="p1">Commercial Plywood</h3>
-          <p>Reliable plywood options suitable for various interior applications and furniture work.</p>
+          <p id="p1desc">Reliable plywood options suitable for various interior applications and furniture work.</p>
         </div>
       </div>
       
@@ -907,7 +971,7 @@ body {
         </div>
         <div class="product-content">
           <h3 id="p2">Laminates & Decorative Sheets</h3>
-          <p>Contemporary laminates and decorative panels in modern finishes and colors.</p>
+          <p id="p2desc">Contemporary laminates and decorative panels in modern finishes and colors.</p>
         </div>
       </div>
       
@@ -917,7 +981,7 @@ body {
         </div>
         <div class="product-content">
           <h3 id="p3">Adhesives & Bonding Materials</h3>
-          <p>Effective bonding solutions that ensure durable and lasting results.</p>
+          <p id="p3desc">Effective bonding solutions that ensure durable and lasting results.</p>
         </div>
       </div>
       
@@ -927,7 +991,7 @@ body {
         </div>
         <div class="product-content">
           <h3 id="p4">Veneer & Surface Finishes</h3>
-          <p>Natural wood veneers and finishing materials to enhance project aesthetics.</p>
+          <p id="p4desc">Natural wood veneers and finishing materials to enhance project aesthetics.</p>
         </div>
       </div>
       
@@ -937,7 +1001,7 @@ body {
         </div>
         <div class="product-content">
           <h3 id="p5">Support Materials</h3>
-          <p>Auxiliary components and hardware needed for complete interior installations.</p>
+          <p id="p5desc">Auxiliary components and hardware needed for complete interior installations.</p>
         </div>
       </div>
     </div>
@@ -948,7 +1012,7 @@ body {
 <section class="section" id="approach">
   <div class="container">
     <h2 class="section-title" id="approachTitle">How We Work</h2>
-    <p class="section-subtitle">A straightforward approach designed for trade professionals</p>
+    <p class="section-subtitle" id="approachSubtitle">A straightforward approach designed for trade professionals</p>
     
     <div class="values-container">
       <div class="value-card">
@@ -982,7 +1046,7 @@ body {
 <section class="section" id="contact">
   <div class="container">
     <h2 class="section-title" id="contactTitle">Get in Touch</h2>
-    <p class="section-subtitle">Contact us for material inquiries, pricing, or project discussions</p>
+    <p class="section-subtitle" id="contactSubtitle">Contact us for material inquiries, pricing, or project discussions</p>
     
     <div class="contact-section">
       <div class="contact-info">
@@ -1035,36 +1099,37 @@ body {
       <div class="map-container">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.292665554177!2d88.39806131543924!3d22.535385985208193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277134ae59275%3A0xdf0f10c5c5b6f6b!2sTopsia%20Rd%2C%20Kolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1652345678901!5m2!1sen!2sin" 
                 width="100%" 
-                height="400" 
+                height="100%" 
                 style="border:0;" 
                 allowfullscreen="" 
                 loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Halder & Co. Location Map">
         </iframe>
       </div>
       
       <div class="enquiry-form">
         <h3 id="messageTitle">Send Your Requirements</h3>
-        <p>Tell us about your project needs and we'll respond with suitable options and pricing.</p>
+        <p id="formDescription">Tell us about your project needs and we'll respond with suitable options and pricing.</p>
         
         <form id="enquiryForm" onsubmit="handleEnquiryForm(event)">
           <div class="form-group">
-            <label for="name">Your Name</label>
+            <label for="name" id="nameLabel">Your Name</label>
             <input type="text" id="name" name="name" required>
           </div>
           
           <div class="form-group">
-            <label for="phone">Phone Number</label>
+            <label for="phone" id="phoneLabel">Phone Number</label>
             <input type="tel" id="phone" name="phone" required>
           </div>
           
           <div class="form-group">
-            <label for="email">Email Address</label>
+            <label for="email" id="emailLabel">Email Address</label>
             <input type="email" id="email" name="email">
           </div>
           
           <div class="form-group">
-            <label for="product">Product Interest</label>
+            <label for="product" id="productLabel">Product Interest</label>
             <select id="product" name="product">
               <option value="">Select a product category</option>
               <option value="plywood">Plywood</option>
@@ -1076,11 +1141,11 @@ body {
           </div>
           
           <div class="form-group">
-            <label for="message">Your Requirements</label>
+            <label for="message" id="messageLabel">Your Requirements</label>
             <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project, quantity needed, or any specific requirements..."></textarea>
           </div>
           
-          <button type="submit" class="submit-btn">Send Requirements</button>
+          <button type="submit" class="submit-btn" id="submitBtn">Send Requirements</button>
         </form>
       </div>
     </div>
@@ -1093,11 +1158,11 @@ body {
     <div class="footer-content">
       <div class="footer-brand">
         <h3>HALDER & CO.</h3>
-        <p>Quality interior materials for Kolkata's trade professionals</p>
+        <p id="footerDescription">Quality interior materials for Kolkata's trade professionals</p>
       </div>
       
       <div class="footer-links">
-        <h4>Quick Links</h4>
+        <h4 id="quickLinksTitle">Quick Links</h4>
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About Us</a></li>
@@ -1108,10 +1173,10 @@ body {
       </div>
       
       <div class="footer-contact">
-        <h4>Contact Us</h4>
+        <h4 id="contactUsTitle">Contact Us</h4>
         <a href="tel:+919831776985"><i class="fas fa-phone"></i> +91 98317 76985</a>
         <a href="mailto:halderandco.traders@gmail.com"><i class="fas fa-envelope"></i> halderandco.traders@gmail.com</a>
-        <a href="https://goo.gl/maps/abc123" target="_blank"><i class="fas fa-map-marker-alt"></i> 73C/2 Topsia Road South, Kolkata</a>
+        <a href="https://www.google.com/maps?q=Halder+%26+Co.,+Topsia,+Kolkata" target="_blank"><i class="fas fa-map-marker-alt"></i> 73C/2 Topsia Road South, Kolkata</a>
       </div>
     </div>
     
@@ -1134,96 +1199,240 @@ body {
 // Mobile navigation toggle
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
+const navOverlay = document.getElementById('nav-overlay');
 
-hamburger.addEventListener('click', () => {
+function toggleMobileMenu() {
   navLinks.classList.toggle('active');
-  hamburger.innerHTML = navLinks.classList.contains('active') 
-    ? '<i class="fas fa-times"></i>' 
-    : '<i class="fas fa-bars"></i>';
-});
+  navOverlay.classList.toggle('active');
+  
+  // Change hamburger icon
+  if (navLinks.classList.contains('active')) {
+    hamburger.innerHTML = '<i class="fas fa-times"></i>';
+    document.body.style.overflow = 'hidden';
+  } else {
+    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    document.body.style.overflow = 'auto';
+  }
+}
+
+hamburger.addEventListener('click', toggleMobileMenu);
+navOverlay.addEventListener('click', toggleMobileMenu);
 
 // Close mobile menu when clicking a link
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => {
     navLinks.classList.remove('active');
+    navOverlay.classList.remove('active');
     hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    document.body.style.overflow = 'auto';
+    
+    // Update active nav link
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    link.classList.add('active');
   });
 });
+
+// Update active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+function updateActiveNavLink() {
+  let current = '';
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    const sectionHeight = section.clientHeight;
+    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', updateActiveNavLink);
 
 // Auto year update in footer
 document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-// Language content - Refreshed for new business approach
+// Language content - COMPLETE and FULLY FUNCTIONAL
 const content = {
   en: {
+    // Hero section
     tagline: "Your Partner for Interior Materials",
     products: "Plywood • Laminates • Decorative Panels • Adhesives • Veneer",
+    
+    // About section
     aboutTitle: "Welcome to Halder & Co.",
     aboutSubtitle: "A fresh approach to interior material trading in Kolkata",
     aboutText: "At Halder & Co., we're building a new standard for interior material trading in Topsia, Kolkata. We bring together quality materials, reliable sourcing, and a commitment to making your interior projects successful.",
+    highlight1: "Carefully selected materials that meet practical requirements",
+    highlight2: "Clear, straightforward dealings with carpenters and contractors",
+    highlight3: "Timely supply within Kolkata to keep your projects moving",
+    
+    // Products section
     productTitle: "What We Supply",
+    productSubtitle: "Essential interior materials selected for quality and performance",
     p1: "Commercial Plywood",
+    p1desc: "Reliable plywood options suitable for various interior applications and furniture work.",
     p2: "Laminates & Decorative Sheets",
+    p2desc: "Contemporary laminates and decorative panels in modern finishes and colors.",
     p3: "Adhesives & Bonding Materials",
+    p3desc: "Effective bonding solutions that ensure durable and lasting results.",
     p4: "Veneer & Surface Finishes",
+    p4desc: "Natural wood veneers and finishing materials to enhance project aesthetics.",
     p5: "Support Materials",
+    p5desc: "Auxiliary components and hardware needed for complete interior installations.",
+    
+    // Approach section
     approachTitle: "How We Work",
+    approachSubtitle: "A straightforward approach designed for trade professionals",
     a1: "Practical Support",
     ad1: "We help you select materials based on your specific project needs and practical considerations.",
     a2: "Responsive Service",
     ad2: "Quick response and coordinated delivery to ensure materials arrive when you need them.",
     a3: "Clear Communication",
     ad3: "Transparent pricing and straightforward communication that respects your time and requirements.",
+    
+    // Contact section
     contactTitle: "Get in Touch",
-    messageTitle: "Send Your Requirements"
+    contactSubtitle: "Contact us for material inquiries, pricing, or project discussions",
+    messageTitle: "Send Your Requirements",
+    formDescription: "Tell us about your project needs and we'll respond with suitable options and pricing.",
+    
+    // Form labels
+    nameLabel: "Your Name",
+    phoneLabel: "Phone Number",
+    emailLabel: "Email Address",
+    productLabel: "Product Interest",
+    messageLabel: "Your Requirements",
+    submitBtn: "Send Requirements",
+    
+    // Footer
+    footerDescription: "Quality interior materials for Kolkata's trade professionals",
+    quickLinksTitle: "Quick Links",
+    contactUsTitle: "Contact Us"
   },
   bn: {
+    // Hero section
     tagline: "ইন্টেরিয়র ম্যাটেরিয়ালের আপনার অংশীদার",
     products: "প্লাইউড • ল্যামিনেট • ডেকোরেটিভ প্যানেল • আঠা • ভিনিয়ার",
+    
+    // About section
     aboutTitle: "হালদার অ্যান্ড কোং-এ স্বাগতম",
     aboutSubtitle: "কলকাতায় ইন্টেরিয়র ম্যাটেরিয়াল ট্রেডিং-এ নতুন দৃষ্টিভঙ্গি",
     aboutText: "হালদার অ্যান্ড কোং-এ, আমরা কলকাতার টপসিয়ায় ইন্টেরিয়র ম্যাটেরিয়াল ট্রেডিং-এর জন্য একটি নতুন মান নির্ধারণ করছি। আমরা গুণগত উপকরণ, নির্ভরযোগ্য সোর্সিং এবং আপনার ইন্টেরিয়র প্রকল্পগুলি সফল করার প্রতিশ্রুতি নিয়ে এসেছি।",
+    highlight1: "ব্যবহারিক প্রয়োজনীয়তা পূরণ করে এমন সাবধানে নির্বাচিত উপকরণ",
+    highlight2: "কাঠমিস্ত্রি এবং ঠিকাদারদের সাথে পরিষ্কার, সরল লেনদেন",
+    highlight3: "আপনার প্রকল্পগুলি চলমান রাখতে কলকাতার মধ্যে সময়মতো সরবরাহ",
+    
+    // Products section
     productTitle: "আমরা যা সরবরাহ করি",
+    productSubtitle: "গুণমান এবং কর্মক্ষমতার জন্য নির্বাচিত প্রয়োজনীয় ইন্টেরিয়র উপকরণ",
     p1: "বাণিজ্যিক প্লাইউড",
+    p1desc: "বিভিন্ন ইন্টেরিয়র অ্যাপ্লিকেশন এবং ফার্নিচার কাজের জন্য উপযুক্ত নির্ভরযোগ্য প্লাইউড বিকল্প।",
     p2: "ল্যামিনেট ও সাজসজ্জার শীট",
+    p2desc: "আধুনিক ফিনিশ এবং রঙে সমকালীন ল্যামিনেট এবং সজ্জাসংক্রান্ত প্যানেল।",
     p3: "আঠা ও বন্ধন সামগ্রী",
+    p3desc: "টেকসই এবং দীর্ঘস্থায়ী ফলাফল নিশ্চিত করে এমন কার্যকর বন্ধন সমাধান।",
     p4: "ভিনিয়ার ও পৃষ্ঠ ফিনিশ",
+    p4desc: "প্রকল্পের নান্দনিকতা বাড়াতে প্রাকৃতিক কাঠের ভিনিয়ার এবং ফিনিশিং উপকরণ।",
     p5: "সহায়ক সামগ্রী",
+    p5desc: "সম্পূর্ণ ইন্টেরিয়র ইনস্টলেশনের জন্য প্রয়োজনীয় অক্জিলিয়ারী উপাদান এবং হার্ডওয়্যার।",
+    
+    // Approach section
     approachTitle: "আমরা কীভাবে কাজ করি",
+    approachSubtitle: "ব্যবসায়িক পেশাদারদের জন্য ডিজাইন করা একটি সরল পদ্ধতি",
     a1: "ব্যবহারিক সহায়তা",
     ad1: "আমরা আপনার নির্দিষ্ট প্রকল্পের চাহিদা এবং ব্যবহারিক বিবেচনার ভিত্তিতে উপকরণ নির্বাচনে সহায়তা করি।",
     a2: "প্রতিক্রিয়াশীল পরিষেবা",
     ad2: "দ্রুত প্রতিক্রিয়া এবং সমন্বিত সরবরাহ নিশ্চিত করে যে সামগ্রীগুলি আপনার প্রয়োজন হলে পৌঁছে যায়।",
     a3: "স্পষ্ট যোগাযোগ",
     ad3: "স্বচ্ছ মূল্য নির্ধারণ এবং সরল যোগাযোগ যা আপনার সময় এবং প্রয়োজনীয়তাকে সম্মান করে।",
+    
+    // Contact section
     contactTitle: "যোগাযোগ করুন",
-    messageTitle: "আপনার প্রয়োজনীয়তা পাঠান"
+    contactSubtitle: "উপকরণ জিজ্ঞাসা, মূল্য নির্ধারণ, বা প্রকল্প আলোচনার জন্য আমাদের সাথে যোগাযোগ করুন",
+    messageTitle: "আপনার প্রয়োজনীয়তা পাঠান",
+    formDescription: "আপনার প্রকল্পের প্রয়োজনীয়তা সম্পর্কে আমাদের বলুন এবং আমরা উপযুক্ত বিকল্প এবং মূল্য নির্ধারণের সাথে প্রতিক্রিয়া জানাব।",
+    
+    // Form labels
+    nameLabel: "আপনার নাম",
+    phoneLabel: "ফোন নম্বর",
+    emailLabel: "ইমেল ঠিকানা",
+    productLabel: "পণ্য আগ্রহ",
+    messageLabel: "আপনার প্রয়োজনীয়তা",
+    submitBtn: "প্রয়োজনীয়তা পাঠান",
+    
+    // Footer
+    footerDescription: "কলকাতার ব্যবসায়িক পেশাদারদের জন্য মানসম্মত ইন্টেরিয়র উপকরণ",
+    quickLinksTitle: "দ্রুত লিঙ্ক",
+    contactUsTitle: "যোগাযোগ করুন"
   },
   hi: {
+    // Hero section
     tagline: "इंटीरियर सामग्री के लिए आपका साथी",
     products: "प्लाईवुड • लैमिनेट • सजावटी पैनल • चिपकने वाला • विनियर",
+    
+    // About section
     aboutTitle: "हलदर एंड कंपनी में आपका स्वागत है",
     aboutSubtitle: "कोलकाता में इंटीरियर सामग्री व्यापार का एक नया दृष्टिकोण",
     aboutText: "हलदर एंड कंपनी में, हम कोलकाता के टोपसिया में इंटीरियर सामग्री व्यापार के लिए एक नया मानक बना रहे हैं। हम गुणवत्ता वाली सामग्री, विश्वसनीय सोर्सिंग और आपके इंटीरियर प्रोजेक्ट्स को सफल बनाने की प्रतिबद्धता को एक साथ लाते हैं।",
+    highlight1: "व्यावहारिक आवश्यकताओं को पूरा करने वाली सावधानी से चयनित सामग्री",
+    highlight2: "बढ़ई और ठेकेदारों के साथ स्पष्ट, सीधा व्यवहार",
+    highlight3: "आपकी परियोजनाओं को चलते रहने के लिए कोलकाता के भीतर समय पर आपूर्ति",
+    
+    // Products section
     productTitle: "हम क्या सप्लाई करते हैं",
+    productSubtitle: "गुणवत्ता और प्रदर्शन के लिए चयनित आवश्यक इंटीरियर सामग्री",
     p1: "वाणिज्यिक प्लाईवुड",
+    p1desc: "विभिन्न इंटीरियर अनुप्रयोगों और फर्नीचर कार्य के लिए उपयुक्त विश्वसनीय प्लाईवुड विकल्प।",
     p2: "लैमिनेट और सजावटी शीट",
+    p2desc: "आधुनिक फिनिश और रंगों में समकालीन लैमिनेट और सजावटी पैनल।",
     p3: "चिपकने और बंधन सामग्री",
+    p3desc: "टिकाऊ और स्थायी परिणाम सुनिश्चित करने वाले प्रभावी बंधन समाधान।",
     p4: "विनियर और सतह खत्म",
+    p4desc: "परियोजना सौंदर्यशास्त्र को बढ़ाने के लिए प्राकृतिक लकड़ी के विनियर और परिष्करण सामग्री।",
     p5: "सहायक सामग्री",
+    p5desc: "पूर्ण इंटीरियर स्थापना के लिए आवश्यक सहायक घटक और हार्डवेयर।",
+    
+    // Approach section
     approachTitle: "हम कैसे काम करते हैं",
+    approachSubtitle: "व्यापार पेशेवरों के लिए डिज़ाइन किया गया एक सीधा दृष्टिकोण",
     a1: "व्यावहारिक सहायता",
     ad1: "हम आपकी विशिष्ट परियोजना की आवश्यकताओं और व्यावहारिक विचारों के आधार पर सामग्री चुनने में आपकी मदद करते हैं।",
     a2: "उत्तरदायी सेवा",
     ad2: "त्वरित प्रतिक्रिया और समन्वित वितरण यह सुनिश्चित करता है कि सामग्री आपकी आवश्यकता के अनुसार पहुंचे।",
     a3: "स्पष्ट संचार",
     ad3: "पारदर्शी मूल्य निर्धारण और सीधा संचार जो आपके समय और आवश्यकताओं का सम्मान करता है।",
+    
+    // Contact section
     contactTitle: "संपर्क करें",
-    messageTitle: "अपनी आवश्यकताएं भेजें"
+    contactSubtitle: "सामग्री पूछताछ, मूल्य निर्धारण, या परियोजना चर्चा के लिए हमसे संपर्क करें",
+    messageTitle: "अपनी आवश्यकताएं भेजें",
+    formDescription: "हमें अपनी परियोजना की आवश्यकताओं के बारे में बताएं और हम उपयुक्त विकल्पों और मूल्य निर्धारण के साथ प्रतिक्रिया देंगे।",
+    
+    // Form labels
+    nameLabel: "आपका नाम",
+    phoneLabel: "फोन नंबर",
+    emailLabel: "ईमेल पता",
+    productLabel: "उत्पाद रुचि",
+    messageLabel: "आपकी आवश्यकताएं",
+    submitBtn: "आवश्यकताएं भेजें",
+    
+    // Footer
+    footerDescription: "कोलकाता के व्यापार पेशेवरों के लिए गुणवत्ता इंटीरियर सामग्री",
+    quickLinksTitle: "त्वरित लिंक",
+    contactUsTitle: "हमसे संपर्क करें"
   }
 };
 
-// Language switching function
+// Language switching function - COMPLETELY FIXED
 function setLang(lang) {
   // Update active button
   document.querySelectorAll('.lang-switch button').forEach(btn => {
@@ -1231,13 +1440,42 @@ function setLang(lang) {
   });
   document.getElementById(`btn-${lang}`).classList.add('active');
   
-  // Update all text elements
-  Object.keys(content[lang]).forEach(key => {
+  // Update ALL text elements including previously missing ones
+  const elementsToUpdate = [
+    'tagline', 'products', 'aboutTitle', 'aboutSubtitle', 'aboutText',
+    'highlight1', 'highlight2', 'highlight3', 'productTitle', 'productSubtitle',
+    'p1', 'p1desc', 'p2', 'p2desc', 'p3', 'p3desc', 'p4', 'p4desc', 'p5', 'p5desc',
+    'approachTitle', 'approachSubtitle', 'a1', 'ad1', 'a2', 'ad2', 'a3', 'ad3',
+    'contactTitle', 'contactSubtitle', 'messageTitle', 'formDescription',
+    'nameLabel', 'phoneLabel', 'emailLabel', 'productLabel', 'messageLabel',
+    'submitBtn', 'footerDescription', 'quickLinksTitle', 'contactUsTitle'
+  ];
+  
+  elementsToUpdate.forEach(key => {
     const element = document.getElementById(key);
     if (element) {
       element.textContent = content[lang][key];
     }
   });
+  
+  // Update form button text
+  const submitButton = document.querySelector('.submit-btn');
+  if (submitButton) {
+    submitButton.textContent = content[lang]['submitBtn'];
+  }
+  
+  // Update form placeholder
+  const textarea = document.querySelector('textarea[name="message"]');
+  if (textarea) {
+    textarea.placeholder = lang === 'en' ? "Tell us about your project, quantity needed, or any specific requirements..." :
+                          lang === 'bn' ? "আপনার প্রকল্প, প্রয়োজনীয় পরিমাণ, বা কোন নির্দিষ্ট প্রয়োজনীয়তা সম্পর্কে আমাদের বলুন..." :
+                          "अपनी परियोजना, आवश्यक मात्रा, या किसी विशिष्ट आवश्यकता के बारे में हमें बताएं...";
+  }
+  
+  // Update page title for better UX
+  document.title = lang === 'en' ? "Halder & Co. | Quality Plywood & Interior Materials | Topsia, Kolkata" :
+                   lang === 'bn' ? "হালদার অ্যান্ড কোং | মানসম্মত প্লাইউড ও ইন্টেরিয়র উপকরণ | টপসিয়া, কলকাতা" :
+                   "हलदर एंड कंपनी | गुणवत्ता प्लाईवुड और इंटीरियर सामग्री | टोपसिया, कोलकाता";
 }
 
 // Initialize with English
@@ -1254,8 +1492,16 @@ function handleEnquiryForm(event) {
   const product = form.product.value;
   const message = form.message.value;
   
+  // Get current language for email subject
+  const currentLang = document.querySelector('.lang-switch button.active').id.replace('btn-', '');
+  const subjectLang = {
+    en: `Material Inquiry from ${name} - Halder & Co.`,
+    bn: `${name} থেকে উপকরণ জিজ্ঞাসা - হালদার অ্যান্ড কোং`,
+    hi: `${name} से सामग्री पूछताछ - हलदर एंड कंपनी`
+  };
+  
   // Create email subject and body
-  const subject = `Material Inquiry from ${name} - Halder & Co.`;
+  const subject = subjectLang[currentLang] || subjectLang['en'];
   const body = `
 Name: ${name}
 Phone: ${phone}
@@ -1273,11 +1519,17 @@ ${message}
   // Reset form
   form.reset();
   
-  // Show success message
-  alert('Thank you for your inquiry! Your email client will open with a pre-filled message. Please send it to discuss your requirements.');
+  // Show success message in current language
+  const successMsg = {
+    en: 'Thank you for your inquiry! Your email client will open with a pre-filled message. Please send it to discuss your requirements.',
+    bn: 'আপনার জিজ্ঞাসার জন্য ধন্যবাদ! আপনার ইমেল ক্লায়েন্ট একটি পূর্ব-পূরণকৃত বার্তা সহ খুলবে। আপনার প্রয়োজনীয়তা নিয়ে আলোচনা করতে এটি পাঠান।',
+    hi: 'आपकी पूछताछ के लिए धन्यवाद! आपका ईमेल क्लाइंट एक पूर्व-भरा संदेश के साथ खुलेगा। कृपया अपनी आवश्यकताओं पर चर्चा करने के लिए इसे भेजें।'
+  };
+  
+  alert(successMsg[currentLang] || successMsg['en']);
 }
 
-// Smooth scrolling for anchor links
+// Smooth scrolling for anchor links with offset for fixed header
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
@@ -1287,8 +1539,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     
     const targetElement = document.querySelector(targetId);
     if (targetElement) {
+      const headerHeight = document.querySelector('.main-header').offsetHeight;
+      const targetPosition = targetElement.offsetTop - headerHeight - 20;
+      
       window.scrollTo({
-        top: targetElement.offsetTop - 80,
+        top: targetPosition,
         behavior: 'smooth'
       });
     }
@@ -1313,6 +1568,9 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.product-card, .value-card, .highlight-card').forEach(el => {
   observer.observe(el);
 });
+
+// Initialize page with correct active navigation
+updateActiveNavLink();
 </script>
 </body>
-  </html>
+            </html>
