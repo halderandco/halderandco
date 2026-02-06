@@ -517,6 +517,14 @@ body {
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  height: 450px;
+}
+
+/* Map iframe styling */
+.map-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* ================= ENQUIRY FORM ================= */
@@ -791,6 +799,10 @@ body {
   .about-highlights {
     grid-template-columns: 1fr;
   }
+  
+  .map-container {
+    height: 350px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -832,6 +844,10 @@ body {
   
   .brand-name {
     font-size: 1.5rem;
+  }
+  
+  .map-container {
+    height: 300px;
   }
 }
 
@@ -980,16 +996,6 @@ body {
           <p id="p4-desc">Natural wood veneers and finishing materials to enhance project aesthetics.</p>
         </div>
       </div>
-      
-      <div class="product-card">
-        <div class="product-icon">
-          <i class="fas fa-tools"></i>
-        </div>
-        <div class="product-content">
-          <h3 id="p5">Support Materials</h3>
-          <p id="p5-desc">Auxiliary components and hardware needed for complete interior installations.</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1068,7 +1074,7 @@ body {
       </div>
       
       <div class="business-links">
-        <a href="https://maps.app.goo.gl/TcP69PeAtG8FXEru5" class="business-link" target="_blank">
+        <a href="https://maps.app.goo.gl/Jnd5EAQ1BX3GMvaF8" class="business-link" target="_blank">
           <i class="fas fa-map-marked-alt"></i> <span id="googleLink">Find Us on Google</span>
         </a>
         <a href="https://www.instagram.com/halderandco.9831776985" class="business-link" target="_blank">
@@ -1083,14 +1089,13 @@ body {
       </div>
       
       <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.292665554177!2d88.39806131543924!3d22.535385985208193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277134ae59275%3A0xdf0f10c5c5b6f6b!2sTopsia%20Rd%2C%20Kolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1652345678901!5m2!1sen!2sin&q=Halder%20%26%20Co.%2C%20Topsia%2C%20Kolkata" 
-                width="100%" 
-                height="400" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Halder & Co. Location in Topsia, Kolkata">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7366.020211078157!2d88.39725020845097!3d22.535248985835164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277138ba1a36d%3A0x58e4a33e8a3f8b7d!2sHalder%20%26%20Co.!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+          class="map-iframe"
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Halder & Co. Location in Topsia, Kolkata">
         </iframe>
       </div>
       
@@ -1122,7 +1127,6 @@ body {
               <option value="laminates">Laminates & Decorative Sheets</option>
               <option value="adhesives">Adhesives & Bonding Materials</option>
               <option value="veneer">Veneer & Surface Finishes</option>
-              <option value="other">Other Materials</option>
             </select>
           </div>
           
@@ -1162,7 +1166,7 @@ body {
         <h4 id="footerContactTitle">Contact Us</h4>
         <a href="tel:+919831776985"><i class="fas fa-phone"></i> +91 98317 76985</a>
         <a href="mailto:halderandco.traders@gmail.com"><i class="fas fa-envelope"></i> halderandco.traders@gmail.com</a>
-        <a href="https://maps.app.goo.gl/TcP69PeAtG8FXEru5" target="_blank"><i class="fas fa-map-marker-alt"></i> Halder & Co., Topsia, Kolkata</a>
+        <a href="https://maps.app.goo.gl/Jnd5EAQ1BX3GMvaF8" target="_blank"><i class="fas fa-map-marker-alt"></i> Halder & Co., Topsia, Kolkata</a>
       </div>
     </div>
     
@@ -1231,7 +1235,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Language content - COMPLETE with all missing elements
+// Language content - Updated to remove "Support Materials"
 const content = {
   en: {
     tagline: "Your Partner for Interior Materials",
@@ -1255,8 +1259,6 @@ const content = {
     "p3-desc": "Effective bonding solutions that ensure durable and lasting results.",
     p4: "Veneer & Surface Finishes",
     "p4-desc": "Natural wood veneers and finishing materials to enhance project aesthetics.",
-    p5: "Support Materials",
-    "p5-desc": "Auxiliary components and hardware needed for complete interior installations.",
     approachTitle: "How We Work",
     approachSubtitle: "A straightforward approach designed for trade professionals",
     a1: "Practical Support",
@@ -1314,8 +1316,6 @@ const content = {
     "p3-desc": "কার্যকর বন্ধন সমাধান যা টেকসই এবং দীর্ঘস্থায়ী ফলাফল নিশ্চিত করে।",
     p4: "ভিনিয়ার ও পৃষ্ঠ ফিনিশ",
     "p4-desc": "প্রাকৃতিক কাঠের ভিনিয়ার এবং ফিনিশিং উপকরণ যা প্রকল্পের নান্দনিকতা বাড়ায়।",
-    p5: "সহায়ক সামগ্রী",
-    "p5-desc": "সম্পূর্ণ ইন্টেরিয়র ইনস্টলেশনের জন্য প্রয়োজনীয় সহায়ক উপাদান এবং হার্ডওয়্যার।",
     approachTitle: "আমরা কীভাবে কাজ করি",
     approachSubtitle: "বাণিজ্য পেশাদারদের জন্য ডিজাইন করা একটি সরল পদ্ধতি",
     a1: "ব্যবহারিক সহায়তা",
@@ -1347,7 +1347,7 @@ const content = {
     footerHome: "হোম",
     footerAbout: "আমাদের সম্পর্কে",
     footerProducts: "পণ্য",
-    footerApproach: "আমাদের পদ্ধতি",
+    footerApproach: "আমদের পদ্ধতি",
     footerContact: "যোগাযোগ",
     footerContactTitle: "যোগাযোগ করুন"
   },
@@ -1373,8 +1373,6 @@ const content = {
     "p3-desc": "प्रभावी बंधन समाधान जो टिकाऊ और स्थायी परिणाम सुनिश्चित करते हैं।",
     p4: "विनियर और सतह खत्म",
     "p4-desc": "प्राकृतिक लकड़ी के विनियर और फिनिशिंग सामग्री जो परियोजना सौंदर्यशास्त्र को बढ़ाते हैं।",
-    p5: "सहायक सामग्री",
-    "p5-desc": "पूर्ण इंटीरियर स्थापना के लिए आवश्यक सहायक घटक और हार्डवेयर।",
     approachTitle: "हम कैसे काम करते हैं",
     approachSubtitle: "व्यापार पेशेवरों के लिए डिज़ाइन की गई एक सीधी प्रक्रिया",
     a1: "व्यावहारिक सहायता",
@@ -1412,7 +1410,7 @@ const content = {
   }
 };
 
-// Language switching function - COMPLETE
+// Language switching function
 function setLang(lang) {
   // Update active button
   document.querySelectorAll('.lang-switch button').forEach(btn => {
@@ -1490,4 +1488,4 @@ document.querySelectorAll('.product-card, .value-card, .highlight-card').forEach
 });
 </script>
 </body>
-</html>
+              </html>
