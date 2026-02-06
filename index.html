@@ -129,40 +129,54 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0;
+  padding: 12px 0;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
 .brand-name {
   font-family: "Cormorant Garamond", serif;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: var(--primary);
   letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* Compact Navigation Menu */
+.nav-links-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 40px;
+  gap: 28px;
+  background: #f8f9f8;
+  padding: 8px 24px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(31, 61, 43, 0.08);
 }
 
 .nav-links a {
   text-decoration: none;
   color: var(--primary);
   font-weight: 500;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   position: relative;
   padding: 8px 0;
-  transition: color 0.3s ease;
-  font-family: "Cormorant Garamond", serif;
+  transition: all 0.3s ease;
+  font-family: "Source Sans 3", sans-serif;
   font-weight: 600;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -184,6 +198,16 @@ body {
   width: 100%;
 }
 
+/* Active navigation item */
+.nav-links a.active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.nav-links a.active:after {
+  width: 100%;
+}
+
 .hamburger {
   display: none;
   font-size: 1.5rem;
@@ -192,6 +216,7 @@ body {
   background: none;
   border: none;
   padding: 5px;
+  margin-left: 15px;
 }
 
 /* ================= HERO SECTION ================= */
@@ -676,7 +701,8 @@ body {
   }
   
   .nav-links {
-    gap: 30px;
+    gap: 20px;
+    padding: 8px 20px;
   }
 }
 
@@ -685,24 +711,40 @@ body {
     display: block;
   }
   
-  .nav-links {
-    position: fixed;
-    top: 80px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background: white;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 50px;
-    gap: 30px;
-    transition: left 0.3s ease;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  .nav-links-container {
+    display: none;
   }
   
-  .nav-links.active {
+  .nav-links-container.active {
+    display: block;
+    position: absolute;
+    top: 100%;
     left: 0;
+    width: 100%;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+    gap: 20px;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  
+  .nav-links a {
+    padding: 12px 0;
+    font-size: 1.1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .nav-links a:last-child {
+    border-bottom: none;
   }
   
   .hero {
@@ -787,6 +829,10 @@ body {
   .nav-links a {
     font-size: 1.1rem;
   }
+  
+  .brand-name {
+    font-size: 1.5rem;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -797,6 +843,11 @@ body {
   
   .contact-info-top {
     flex-wrap: nowrap;
+  }
+  
+  .nav-links {
+    gap: 20px;
+    padding: 8px 20px;
   }
 }
 </style>
@@ -825,19 +876,19 @@ body {
       <div class="brand-name">HALDER & CO.</div>
     </div>
     
-    <button class="hamburger" id="hamburger">
-      <i class="fas fa-bars"></i>
-    </button>
-    
-    <nav>
+    <div class="nav-links-container" id="nav-container">
       <ul class="nav-links" id="nav-links">
-        <li><a href="#home">Home</a></li>
+        <li><a href="#home" class="active">Home</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#products">Products</a></li>
         <li><a href="#approach">Our Approach</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-    </nav>
+    </div>
+    
+    <button class="hamburger" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </button>
   </div>
 </header>
 
@@ -991,7 +1042,7 @@ body {
           </div>
           <div>
             <h4 id="locationTitle">Our Location</h4>
-            <p id="locationAddress">73C/2 Topsia Road South, Millatnagar Society,<br>Kolkata 700046, West Bengal</p>
+            <p id="locationAddress">Halder & Co., Topsia, Kolkata<br>West Bengal</p>
           </div>
         </div>
         
@@ -1017,7 +1068,7 @@ body {
       </div>
       
       <div class="business-links">
-        <a href="https://www.google.com/maps?q=Halder+%26+Co.,+Topsia,+Kolkata" class="business-link" target="_blank">
+        <a href="https://maps.app.goo.gl/TcP69PeAtG8FXEru5" class="business-link" target="_blank">
           <i class="fas fa-map-marked-alt"></i> <span id="googleLink">Find Us on Google</span>
         </a>
         <a href="https://www.instagram.com/halderandco.9831776985" class="business-link" target="_blank">
@@ -1111,7 +1162,7 @@ body {
         <h4 id="footerContactTitle">Contact Us</h4>
         <a href="tel:+919831776985"><i class="fas fa-phone"></i> +91 98317 76985</a>
         <a href="mailto:halderandco.traders@gmail.com"><i class="fas fa-envelope"></i> halderandco.traders@gmail.com</a>
-        <a href="https://www.google.com/maps?q=Halder+%26+Co.,+Topsia,+Kolkata" target="_blank"><i class="fas fa-map-marker-alt"></i> Topsia, Kolkata</a>
+        <a href="https://maps.app.goo.gl/TcP69PeAtG8FXEru5" target="_blank"><i class="fas fa-map-marker-alt"></i> Halder & Co., Topsia, Kolkata</a>
       </div>
     </div>
     
@@ -1133,11 +1184,12 @@ body {
 <script>
 // Mobile navigation toggle
 const hamburger = document.getElementById('hamburger');
+const navContainer = document.getElementById('nav-container');
 const navLinks = document.getElementById('nav-links');
 
 hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-  hamburger.innerHTML = navLinks.classList.contains('active') 
+  navContainer.classList.toggle('active');
+  hamburger.innerHTML = navContainer.classList.contains('active') 
     ? '<i class="fas fa-times"></i>' 
     : '<i class="fas fa-bars"></i>';
 });
@@ -1145,13 +1197,39 @@ hamburger.addEventListener('click', () => {
 // Close mobile menu when clicking a link
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => {
-    navLinks.classList.remove('active');
+    navContainer.classList.remove('active');
     hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    
+    // Update active state
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    link.classList.add('active');
   });
 });
 
 // Auto year update in footer
 document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+// Smooth scrolling for anchor links with active state update
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+    
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      // Update active state in navigation
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+      this.classList.add('active');
+      
+      window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
 
 // Language content - COMPLETE with all missing elements
 const content = {
@@ -1190,7 +1268,7 @@ const content = {
     contactTitle: "Get in Touch",
     contactSubtitle: "Contact us for material inquiries, pricing, or project discussions",
     locationTitle: "Our Location",
-    locationAddress: "73C/2 Topsia Road South, Millatnagar Society,<br>Kolkata 700046, West Bengal",
+    locationAddress: "Halder & Co., Topsia, Kolkata<br>West Bengal",
     callTitle: "Call Us",
     emailTitle: "Email Us",
     googleLink: "Find Us on Google",
@@ -1249,7 +1327,7 @@ const content = {
     contactTitle: "যোগাযোগ করুন",
     contactSubtitle: "উপকরণের অনুসন্ধান, মূল্য নির্ধারণ বা প্রকল্প আলোচনার জন্য আমাদের সাথে যোগাযোগ করুন",
     locationTitle: "আমাদের অবস্থান",
-    locationAddress: "73C/2 টপসিয়া রোড সাউথ, মিল্লাতনগর সোসাইটি,<br>কলকাতা 700046, পশ্চিমবঙ্গ",
+    locationAddress: "হালদার অ্যান্ড কোং, টপসিয়া, কলকাতা<br>পশ্চিমবঙ্গ",
     callTitle: "আমাদের কল করুন",
     emailTitle: "আমাদের ইমেল করুন",
     googleLink: "গুগলে আমাদের খুঁজুন",
@@ -1308,7 +1386,7 @@ const content = {
     contactTitle: "संपर्क करें",
     contactSubtitle: "सामग्री की जांच, मूल्य निर्धारण या परियोजना चर्चा के लिए हमसे संपर्क करें",
     locationTitle: "हमारा स्थान",
-    locationAddress: "73C/2 टोपसिया रोड साउथ, मिल्लातनगर सोसाइटी,<br>कोलकाता 700046, पश्चिम बंगाल",
+    locationAddress: "हलदर एंड कंपनी, टोपसिया, कोलकाता<br>पश्चिम बंगाल",
     callTitle: "हमें कॉल करें",
     emailTitle: "हमें ईमेल करें",
     googleLink: "गूगल पर हमें ढूंढें",
@@ -1391,24 +1469,6 @@ ${message}
   // Show success message
   alert('Thank you for your inquiry! Your email client will open with a pre-filled message. Please send it to discuss your requirements.');
 }
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    const targetId = this.getAttribute('href');
-    if (targetId === '#') return;
-    
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop - 80,
-        behavior: 'smooth'
-      });
-    }
-  });
-});
 
 // Add animation on scroll
 const observerOptions = {
