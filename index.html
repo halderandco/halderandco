@@ -485,6 +485,18 @@ body {
   text-decoration: underline;
 }
 
+.contact-item p a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-item p a:hover {
+  color: var(--primary-light);
+  text-decoration: underline;
+}
+
 .business-links {
   display: flex;
   flex-wrap: wrap;
@@ -1032,7 +1044,7 @@ body {
           </div>
           <div>
             <h4 id="locationTitle">Our Location</h4>
-            <p id="locationAddress">73C/2 Topsia Road South, Kolkata 700046 Millatnagar Society</p>
+            <p id="locationAddress"><a href="https://maps.app.goo.gl/TcP69PeAtG8FXEru5" target="_blank">73C/2 Topsia Road South, Kolkata 700046 Millatnagar Society</a></p>
           </div>
         </div>
         
@@ -1233,7 +1245,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Language content - Updated with new address
+// Language content - Updated with hyperlinked address
 const content = {
   en: {
     tagline: "Quality Interior Materials at Competitive Rates",
@@ -1268,7 +1280,7 @@ const content = {
     contactTitle: "Get in Touch",
     contactSubtitle: "Contact us for material inquiries, competitive quotes, or project requirements",
     locationTitle: "Our Location",
-    locationAddress: "73C/2 Topsia Road South, Kolkata 700046 Millatnagar Society",
+    locationAddress: '<a href="https://maps.app.goo.gl/TcP69PeAtG8FXEru5" target="_blank">73C/2 Topsia Road South, Kolkata 700046 Millatnagar Society</a>',
     callTitle: "Call Us",
     emailTitle: "Email Us",
     googleLink: "Find Us on Google",
@@ -1326,7 +1338,7 @@ const content = {
     contactTitle: "যোগাযোগ করুন",
     contactSubtitle: "সামগ্রীর অনুসন্ধান, প্রতিযোগিতামূলক উদ্ধৃতি বা প্রকল্পের প্রয়োজনীয়তার জন্য আমাদের সাথে যোগাযোগ করুন",
     locationTitle: "আমাদের অবস্থান",
-    locationAddress: "73C/2 Topsia Road South, Kolkata 700046 Millatnagar Society",
+    locationAddress: '<a href="https://maps.app.goo.gl/TcP69PeAtG8FXEru5" target="_blank">73C/2 Topsia Road South, Kolkata 700046 Millatnagar Society</a>',
     callTitle: "আমাদের কল করুন",
     emailTitle: "আমাদের ইমেল করুন",
     googleLink: "গুগলে আমাদের খুঁজুন",
@@ -1384,7 +1396,7 @@ const content = {
     contactTitle: "संपर्क करें",
     contactSubtitle: "सामग्री की जांच, प्रतिस्पर्धी उद्धरण, या परियोजना आवश्यकताओं के लिए हमसे संपर्क करें",
     locationTitle: "हमारा स्थान",
-    locationAddress: "73C/2 Topsia Road South, Kolkata 700046 Millatnagar Society",
+    locationAddress: '<a href="https://maps.app.goo.gl/TcP69PeAtG8FXEru5" target="_blank">73C/2 Topsia Road South, Kolkata 700046 Millatnagar Society</a>',
     callTitle: "हमें कॉल करें",
     emailTitle: "हमें ईमेल करें",
     googleLink: "गूगल पर हमें ढूंढें",
@@ -1424,7 +1436,7 @@ function setLang(lang) {
     const element = document.getElementById(key);
     if (element) {
       if (key === 'locationAddress') {
-        element.innerHTML = content[lang][key]; // Use innerHTML for line breaks
+        element.innerHTML = content[lang][key]; // Use innerHTML for the hyperlink
       } else {
         element.textContent = content[lang][key];
       }
