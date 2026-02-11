@@ -139,6 +139,15 @@ body {
   flex-shrink: 0;
 }
 
+/* Added circular logo in header */
+.header-circular-logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+}
+
 .brand-name {
   font-family: "Cormorant Garamond", serif;
   font-size: 1.7rem;
@@ -602,6 +611,20 @@ body {
   margin-bottom: 40px;
 }
 
+.footer-brand {
+  position: relative;
+}
+
+/* Added circular logo in footer */
+.footer-circular-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  margin-bottom: 15px;
+}
+
 .footer-brand h3 {
   font-family: "Cormorant Garamond", serif;
   font-size: 1.8rem;
@@ -691,6 +714,25 @@ body {
   background: var(--accent-dark);
   transform: scale(1.1);
   box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
+}
+
+/* ================= PRINT/WATERMARK STYLES ================= */
+@media print {
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('343912.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 400px 400px;
+    opacity: 0.08;
+    z-index: 9999;
+    pointer-events: none;
+  }
 }
 
 /* ================= RESPONSIVE DESIGN ================= */
@@ -803,6 +845,11 @@ body {
   .about-highlights {
     grid-template-columns: 1fr;
   }
+  
+  .header-circular-logo {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -845,6 +892,16 @@ body {
   .brand-name {
     font-size: 1.5rem;
   }
+  
+  .header-circular-logo {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .footer-circular-logo {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -885,6 +942,7 @@ body {
 <header class="main-header">
   <div class="container nav-container">
     <div class="logo-container">
+      <img src="343912.png" alt="Halder & Co. Circular Logo" class="header-circular-logo">
       <div class="brand-name">HALDER & CO.</div>
     </div>
     
@@ -1157,6 +1215,7 @@ body {
   <div class="container">
     <div class="footer-content">
       <div class="footer-brand">
+        <img src="343912.png" alt="Halder & Co. Circular Logo" class="footer-circular-logo">
         <h3>HALDER & CO.</h3>
         <p id="footerTagline">Quality interior materials at competitive rates for Kolkata</p>
       </div>
